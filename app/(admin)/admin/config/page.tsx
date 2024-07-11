@@ -3,7 +3,7 @@ import React from 'react'
 
 function page() {
   return (
-    <AdminLayout>
+    <AdminLayout active={"Config"}>
       config
     </AdminLayout>
   )
