@@ -4,9 +4,7 @@ import UploadForm from "./Form";
 function page() {
   return (
     <AdminLayout active={"Articles"}>
-      <div className="flex justify-center">
         <UploadForm />
-      </div>
     </AdminLayout>
   );
 }

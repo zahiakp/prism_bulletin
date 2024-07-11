@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import FormInput, {
@@ -19,32 +19,29 @@ import { toast } from "react-toastify";
 import { Select } from "antd";
 import { antFilterOption } from "@/components/common/antFillteroption";
 import { ArraytoString } from "@/components/common/decodeTags";
-import { uploadArticle, uploadImage} from "./func";
+import { uploadArticle, uploadImage } from "./func";
+
+const types = [
+  { label: "News", value: "NEWS1" },
+  { label: "Event", value: "EVENT1" },
+  { label: "News1", value: "NEWS2" },
+  { label: "Event1", value: "EVENT2" },
+  { label: "News2", value: "NEWS3" },
+  { label: "Event2", value: "EVENT3" },
+  { label: "News3", value: "NEWS4" },
+  { label: "Event3", value: "EVENT4" },
+  { label: "News4", value: "NEWS5" },
+  { label: "Even4t", value: "EVENT5" },
+];
+
+const POST_STATUS = [
+  { value: "active", label: "active" },
+  { value: "inactive", label: "inactive" },
+];
 
 const UploadForm = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-
-  const types = useMemo(
-    () => [
-      { label: "News", value: "NEWS1" },
-      { label: "Event", value: "EVENT1" },
-      { label: "News1", value: "NEWS2" },
-      { label: "Event1", value: "EVENT2" },
-      { label: "News2", value: "NEWS3" },
-      { label: "Event2", value: "EVENT3" },
-      { label: "News3", value: "NEWS4" },
-      { label: "Event3", value: "EVENT4" },
-      { label: "News4", value: "NEWS5" },
-      { label: "Even4t", value: "EVENT5" },
-    ],
-    []
-  );
-
-  const POST_STATUS = useMemo(() => [
-    { value: "active", label: "active" },
-    { value: "inactive", label: "inactive" },
-  ], []);
 
   const formik = useFormik({
     initialValues: {
