@@ -167,6 +167,26 @@ const UploadForm = ({ data }: { data: any }) => {
             name="body"
             placeholder="Content"
           />
+          <div className="bg-white rounded-md mt-4 p-4 grid gap-3">
+            <div className="flex justify-between items-center">
+              <p>Select Tags</p>
+              <button className="p-[6px] px-4 rounded-md bg-zinc-900 text-white flex items-center gap-2">
+                <IoMdAddCircle /> Add
+              </button>
+            </div>
+            <Select
+              variant="borderless"
+              mode="tags"
+              className="w-full border rounded-md focus:border-zinc-900 mt-2 py-1 cursor-pointer"
+              showSearch
+              placeholder="Select tags"
+              size="large"
+              filterOption={antFilterOption}
+              value={formik.values["tags"]}
+              onChange={(value) => formik.setFieldValue("tags", value)}
+              options={types}
+            />
+          </div>
         </div>
         <div className="col-span-1">
           <div className="grid gap-2 w-full text-lg">
@@ -223,58 +243,42 @@ const UploadForm = ({ data }: { data: any }) => {
           </div>
 
           <div className="mt-2 p-2 rounded-lg bg-zinc-200 grid gap-2">
-            <div
-              className={`collapse border collapse-arrow rounded-lg ${
+            <div className={` border  rounded-md p-4 grid gap-3 ${
                 formik.errors["author"] && formik.touched["author"]
                   ? "bg-red-100 border-red-500"
                   : "bg-white"
-              }`}
-            >
-              <input type="radio" name="my-accordion-2" defaultChecked />
-              <div className="collapse-title font-medium">Author</div>
-              <div className="collapse-content">
-                <div className="flex justify-between items-center">
-                  <p>Select Author</p>
-                  <button className="p-[6px] px-4 rounded-md bg-zinc-900 text-white flex items-center gap-2">
-                    <IoMdAddCircle /> Add
-                  </button>
-                </div>
-                <Select
-                  variant="borderless"
-                  className="w-full border rounded-md focus:border-zinc-900 mt-2 py-1 cursor-pointer"
-                  showSearch
-                  placeholder="Select a campus"
-                  size="large"
-                  filterOption={antFilterOption}
-                  value={formik.values["author"]}
-                  onChange={(value) => formik.setFieldValue("author", value)}
-                  options={types}
-                />
-              </div>
-            </div>
-
-            <div className="bg-white rounded-md p-4 grid gap-3">
+              }`}>
               <div className="flex justify-between items-center">
-                <p>Select Tags</p>
+                <p>Select Author</p>
                 <button className="p-[6px] px-4 rounded-md bg-zinc-900 text-white flex items-center gap-2">
                   <IoMdAddCircle /> Add
                 </button>
               </div>
               <Select
                 variant="borderless"
-                mode="tags"
                 className="w-full border rounded-md focus:border-zinc-900 mt-2 py-1 cursor-pointer"
                 showSearch
-                placeholder="Select tags"
+                placeholder="Select a Author"
                 size="large"
                 filterOption={antFilterOption}
-                value={formik.values["tags"]}
-                onChange={(value) => formik.setFieldValue("tags", value)}
+                value={formik.values["author"]}
+                onChange={(value) => formik.setFieldValue("author", value)}
                 options={types}
               />
             </div>
 
-            <div className="collapse collapse-arrow bg-white rounded-lg">
+            <div className="bg-white rounded-md p-4 grid gap-3">
+              <p>Select Date</p>
+              <FormCusInput
+                formik={formik}
+                label=""
+                name="date"
+                placeholder="Date"
+                type="date"
+              />
+            </div>
+
+            {/* <div className="collapse collapse-arrow bg-white rounded-lg">
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title font-medium">Post Date</div>
               <div className="collapse-content">
@@ -287,74 +291,62 @@ const UploadForm = ({ data }: { data: any }) => {
                   type="date"
                 />
               </div>
-            </div>
+            </div> */}
 
             <div
-              className={`collapse border collapse-arrow rounded-lg ${
+              className={` border  rounded-md p-4 grid gap-3 ${
                 formik.errors["type"] && formik.touched["type"]
                   ? "bg-red-100 border-red-500"
                   : "bg-white"
               }`}
             >
-              <input type="radio" name="my-accordion-2" />
-              <div className="collapse-title font-medium">Category</div>
-              <div className="collapse-content">
-                <div className="flex justify-between items-center">
-                  <p>Select Category</p>
-                  <button className="p-[6px] px-4 rounded-md bg-zinc-900 text-white flex items-center gap-2">
-                    <IoMdAddCircle /> Add
-                  </button>
-                </div>
-                <FormSelect
-                  formik={formik}
-                  name="type"
-                  placeholder="Select Category"
-                  label=""
-                  items={types}
-                />
+              <div className="flex justify-between items-center">
+                <p>Select Category</p>
+                <button className="p-[6px] px-4 rounded-md bg-zinc-900 text-white flex items-center gap-2">
+                  <IoMdAddCircle /> Add
+                </button>
               </div>
+              <FormSelect
+                formik={formik}
+                name="type"
+                placeholder="Select Category"
+                label=""
+                items={types}
+              />
             </div>
 
             <div
-              className={`collapse border collapse-arrow rounded-lg ${
+              className={` border  rounded-md p-4 grid gap-3 ${
                 formik.errors["status"] && formik.touched["status"]
                   ? "bg-red-100 border-red-500"
                   : "bg-white"
               }`}
-            >
-              <input type="radio" name="my-accordion-2" />
-              <div className="collapse-title font-medium">Status</div>
-              <div className="collapse-content">
-                <p>Select Status</p>
-                <FormSelect
-                  formik={formik}
-                  name="status"
-                  placeholder="Select Status"
-                  label=""
-                  items={POST_STATUS}
-                />
-              </div>
+            > <p>Select Status</p>
+                
+              <FormSelect
+                formik={formik}
+                name="status"
+                placeholder="Select Status"
+                label=""
+                items={POST_STATUS}
+              />
             </div>
 
             <div
-              className={`collapse border collapse-arrow rounded-lg ${
+              className={` border  rounded-md p-4 grid gap-3 ${
                 formik.errors["url"] && formik.touched["url"]
                   ? "bg-red-100 border-red-500"
                   : "bg-white"
               }`}
             >
-              <input type="radio" name="my-accordion-2" />
-              <div className="collapse-title font-medium">URL</div>
-              <div className="collapse-content">
-                <p>Enter Custom URL</p>
-                <FormCusInput
-                  formik={formik}
-                  label=""
-                  name="url"
-                  placeholder="eg:article-about-prism"
-                  type="text"
-                />
-              </div>
+              <p>Enter Custom URL</p>
+              <FormCusInput
+                formik={formik}
+                label=""
+                name="url"
+                placeholder="eg:article-about-prism"
+                type="text"
+              />
             </div>
           </div>
         </div>

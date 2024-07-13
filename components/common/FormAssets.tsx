@@ -21,7 +21,7 @@ export const TitleInput = ({
   return (
     <div className="py-2">
       <textarea
-        className={`w-full p-3 px-5 border-b  outline-none focus:border-b-2 rounded ${formik.errors[name] && formik.touched[name]?"bg-red-50 border-red-500 border-b-2" : "bg-white border-black"}  h-40 text-xl font-semibold`}
+        className={`w-full p-3 px-5 border-b  outline-none focus:border-b-2 rounded ${formik.errors[name] && formik.touched[name] ? "bg-red-50 border-red-500 border-b-2" : "bg-white border-black"}  h-40 text-xl font-semibold`}
         name={name}
         onChange={formik.handleChange}
         value={formik.values[name]}
