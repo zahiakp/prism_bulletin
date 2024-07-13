@@ -9,7 +9,7 @@ async function page({ params }: { params: any }) {
   return (
     <AdminLayout active={"Articles"}>
       <div className="flex justify-center">
-        <UploadForm data={ThisArticle?.data} />
+        {/* <UploadForm data={ThisArticle?.data} /> */}
       </div>
     </AdminLayout>
   );
