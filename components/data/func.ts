@@ -1,4 +1,4 @@
-export const ROOT_URL: string = "http://localhost/prismbullentin-backend/";
+export const ROOT_URL: string = "https://malikoptics.abaqas.in/prismbullentin-backend/";
 // process.env.NODE_ENV === "production"
 //   ? "https://api.delhithaiba.com/"
 //   : "http://localhost/delhi-thaiba-backend/";
