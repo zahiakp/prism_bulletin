@@ -5,7 +5,9 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { NEWS } from "../data/data";
+
 import Link from "next/link";
+
 
 function MainSlider() {
   return (
@@ -25,6 +27,7 @@ function MainSlider() {
             className="w-full"
           >
             {NEWS.map((item: any, index: number) => (
+
               <div key={index} className="cursor-pointer">
                 <SwiperSlide>
                   <Link href={`/news/${item.url}`}>
@@ -53,6 +56,7 @@ function MainSlider() {
                       </div>
                     </section>
                   </Link>
+
                 </SwiperSlide>
               </div>
             ))}
