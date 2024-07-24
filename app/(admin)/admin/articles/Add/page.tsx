@@ -5,7 +5,7 @@ import UploadForm from "./Form";
 function page() {
   return (
     <AdminLayout active={"Articles"}>
-        <UploadForm />
+        {/* <UploadForm /> */}
         {/* <UploadForm/> */}
     </AdminLayout>
   );
