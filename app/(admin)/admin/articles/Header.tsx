@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { IoSearchOutline } from 'react-icons/io5'
 import { RiAddCircleFill } from 'react-icons/ri'
@@ -10,7 +11,7 @@ function Header() {
             <div className="text-zinc-900 text-sm breadcrumbs">
               <ul>
                 <li>
-                  <a href="/admin">Dashbord</a>
+                  <Link href="/admin">Dashbord</Link>
                 </li>
                 <li>Articles</li>
               </ul>

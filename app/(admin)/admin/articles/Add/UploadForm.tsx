@@ -20,8 +20,21 @@ import { Select } from "antd";
 import { antFilterOption } from "@/components/common/antFillteroption";
 import { ArraytoString } from "@/components/common/decodeTags";
 import { uploadArticle, uploadImage } from "./func";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 function UploadForm() {
+
+
+  const handleEditorChange = (event: any, editor: any) => {
+    const data = editor.getData();
+    formik.setFieldValue("body", data);
+  };
+
+
+
+
+
     const types = [
         { label: "News", value: "NEWS1" },
         { label: "Event", value: "EVENT1" },
@@ -103,12 +116,44 @@ function UploadForm() {
         name="title"
         placeholder="Title"
       /> */}
-      {/* <BodyInput
-        formik={formik}
-        label=""
-        name="body"
-        placeholder="Content"
-      /> */}
+      <div className="py-2">
+      <textarea
+        className={`w-full p-3 px-5 border-b  outline-none focus:border-b-2 rounded ${formik.errors["title"] && formik.touched["title"] ? "bg-red-50 border-red-500 border-b-2" : "bg-white border-black"}  h-40 text-xl font-semibold`}
+        name={"title"}
+        onChange={formik.handleChange}
+        value={formik.values["title"]}
+        placeholder="Enter Title..."
+      />
+      <div>
+        {formik.errors["title"] && formik.touched["title"] && (
+          <p className="text-red-600 text-sm my-1 ml-1">
+            {formik.errors["title"]}
+          </p>
+        )}
+      </div>
+    </div>
+
+{/* -------------------------------------- */}
+
+<div className="p-2 bg-white">
+      <div className="text-sm text-primary-600 my-1 "></div>
+      <CKEditor
+        editor={ClassicEditor}
+        data={formik.values['body']}
+        onChange={handleEditorChange}
+      />
+      <div>
+        {formik.errors['body'] && formik.touched['body'] && (
+          <p className="text-red-600 text-sm my-1 ml-1">
+            {formik.errors['body']}
+          </p>
+        )}
+      </div>
+    
+    </div>
+
+
+
       <div className="bg-white rounded-md mt-4 p-4 grid gap-3">
         <div className="flex justify-between items-center">
           <p>Select Tags</p>
@@ -130,7 +175,7 @@ function UploadForm() {
         />
       </div>
     </div>
-    <div className="col-span-1">
+    {/* <div className="col-span-1">
           <div className="grid gap-2 w-full text-lg">
             <button
               className="bg-zinc-800 hover:bg-black duration-300 rounded-lg text-base font-semibold text-white flex items-center justify-center gap-3 py-3 px-10"
@@ -276,7 +321,8 @@ function UploadForm() {
               />
             </div>
           </div>
-        </div></form>
+        </div> */}
+        </form>
     </div>
   )
 }
