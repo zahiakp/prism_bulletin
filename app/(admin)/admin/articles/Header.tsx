@@ -19,10 +19,8 @@ function Header() {
             </div>
             <h1 className="text-3xl font-[200]">Articles</h1>
           </div>
-          <h1 className="text-3xl font-[200]">Articles</h1>
         </div>
-      </div>
-      <div className="flex gap-3 items-center justify-den">
+        <div className="flex gap-3 items-center justify-den">
         <div className="p-[6px] pr-4 bg-white shadow-md rounded-xl flex items-center  gap-3">
           <select
             // onChange={handleChange}
