@@ -5,7 +5,7 @@ import AdminLayout from "@/components/layouts/AdminLayout";
 function page() {
   return (
     <AdminLayout active={"Articles"}>
-        {/* <UploadForm /> */}
+        <UploadForm />
         {/* <UploadForm/> */}
     </AdminLayout>
   );
