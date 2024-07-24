@@ -13,7 +13,7 @@ function Header() {
     <main className="flex w-full justify-center border-b border-zinc-300 ">
       <div className="w-[90%] max-w-[1200px] flex items-center justify-center md:justify-between duration-300 text-center gap-4 py-6 ">
         <a href="/" className="flex items-center gap-3 text-3xl font-bold">
-          <RiVerifiedBadgeFill className="text-green-600" />
+          <RiVerifiedBadgeFill className="text-blue-600" />
           <p>Prism Bulletin</p>
         </a>
         <button

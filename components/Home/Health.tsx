@@ -15,8 +15,8 @@ function Health() {
       <section className="w-[90%] max-w-[1200px] flex flex-col pt-7">
         <div className="flex items-center justify-between">
             <p className="text-3xl font-bold">Health</p>
-            <a href="" className="flex items-center gap-3 hover:gap-4 duration-300 rounded-3xl p-2 px-5 bg-zinc-100 text-sm"> View All <HiOutlineArrowLongRight className="text-xl"/>
-            </a>
+            <Link href={`/category/${"Health"}`} className="flex items-center gap-3 hover:gap-4 duration-300 rounded-3xl p-2 px-5 bg-zinc-100 text-sm"> View All <HiOutlineArrowLongRight className="text-xl"/>
+            </Link>
         </div>
         <div className="flex flex-col md:flex-row mt-4">
           <Swiper
@@ -34,7 +34,7 @@ function Health() {
             {NEWS.filter((item:any)=>item.cat=="Health").map((item: any, index: number) => (
               <div key={index} >
                 <SwiperSlide>
-                  <section className="flex flex-col mb-10 py-5">
+                  <Link href={`/news/${item.url}`} className="flex flex-col mb-10 py-5">
                     <div className="h-40 w-full overflow-hidden rounded-xl  col-span-3 relative">
                       <img
                         src={item.image}
@@ -56,7 +56,7 @@ function Health() {
                       </p>
                       {/* <p className="text-sm text-zinc-400 mt-[6px]">12 July 2024</p> */}
                     </div>
-                  </section>
+                  </Link>
                 </SwiperSlide>
               </div>
             ))}

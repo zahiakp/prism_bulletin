@@ -1,6 +1,6 @@
 export const NEWS: any = [
   {
-    title: "The Noorani Research Summit",
+    title: "The Nurani Research Summit",
     image: "prism-meet.jpg",
     body: "organized by the Prism Directorate of Research and Development, concluded at the Markaz Knowledge City in Kozhikode. The summit featured participants who completed or are pursuing research in various universities in India and abroad. Keynote speaker Dr. Muhammad Abdul Hakim Azhari emphasized the need for value-based research globally. The event was chaired by Jafer Noorani, with various scholars and researchers, including Dr. Mujeeb Noorani and Dr. Shahul Hameed Noorani, contributing to the discussions.",
     cat: "Education",
@@ -10,7 +10,7 @@ export const NEWS: any = [
     status: "active",
   },
   {
-    title: "Prism Qatar Chapter: Meeting with Ustad Abdul Hakeem Al-Azhari and Eid Celebration",
+    title: "Prism Qatar Chapter: Meeting with Ustad Abdul Hakkim Al-Azhari and Eid Celebration",
     image: "qatar-chapter-meet.jpg",
     body: "The Prism Qatar chapter recently conducted a two-day meeting with Ustad Abdul Hakeem Al-Azhari on June 26, 2024. This gathering was followed by an engaging Eid celebration and Mukhataba reading session on June 27th, where members came together to discuss their current situations, review past work, and plan for the future.",
     cat: "News",
@@ -60,13 +60,13 @@ export const NEWS: any = [
     status: "active",
   },
   {
-    title: "Jamia Madeenathunnoor Launches 'Pachapp' Environmental Campaign",
+    title: "Jamia Madeenathunnoor Launches 'Pachappu' Environmental Campaign",
     image: "pachapp.jpg",
-    body: "Jamia Madeenathunnoor has initiated the 'Pachapp' (Green) environmental campaign as part of its Science Orbit's Thiruvaathira Njaattuvela program. The campaign was inaugurated at the Markaz Garden campus by Dr. A. P. Muhammad Abdul Hakeem Azhari, Founder and Rector of Jamia Madeenathunnoor, alongside T. N. Prathapan, former MP and KPCC Working President, who jointly planted saplings to mark the occasion.",
+    body: "Jamia Madeenathunnoor has initiated the 'Pachappu' (Green) environmental campaign as part of its Science Orbit's Thiruvaathira Njaattuvela program. The campaign was inaugurated at the Markaz Garden campus by Dr. A. P. Muhammad Abdul Hakeem Azhari, Founder and Rector of Jamia Madeenathunnoor, alongside T. N. Prathapan, former MP and KPCC Working President, who jointly planted saplings to mark the occasion.",
     cat: "Agriculture",
     date: "2024-07-24",
-    url: "Jamia-Madeenathunnoor-Launches-'Pachapp'-Environmental-Campaign",
-    tags: "Jamia,Madeenathunnoor,Launches,'Pachapp',Environmental,Campaign",
+    url: "Jamia-Madeenathunnoor-Launches-'Pachappu'-Environmental-Campaign",
+    tags: "Jamia,Madeenathunnoor,Launches,'Pachappu',Environmental,Campaign",
     status: "active",
   },
   {
