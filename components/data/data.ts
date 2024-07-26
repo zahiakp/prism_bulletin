@@ -25,7 +25,7 @@ export const NEWS: any = [
   },
   {
     title: "Sidra Foundation Hosts Thrive Leaders Training Camp",
-    image: "sidra-cmp.jpg",
+    image: "trive.jpg",
     body: "The Sidra Foundation successfully concluded the Thrive 20-26 Leaders Training Camp in Madikeri, Karnataka. This biennial event aimed to equip 25 interns with the necessary leadership skills and a deeper understanding of the foundation's mission. The camp featured workshops and seminars led by distinguished guests, fostering personal and professional development among participants. With a renewed commitment to community service and empowerment, interns are now poised to make significant contributions to the foundation's initiatives.",
     cat: "Education",
     date: "2024-07-24",
@@ -35,7 +35,7 @@ export const NEWS: any = [
   },
   {
     title: "Mercy Van Delivers Aid During Ramadan",
-    image: "prism-meet.jpg",
+    image: "sidra-cmp.jpg",
     body: "The Mercy Van, a Ramadan initiative funded by RCFI, distributed food kits to 977 families across 30 villages in six districts of Maharashtra. This charitable effort ensured that many underprivileged families received essential support and nourishment during the holy month.",
     cat: "Health",
     date: "2024-07-24",

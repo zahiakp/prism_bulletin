@@ -11,7 +11,7 @@ function Content({ data }: { data: any }) {
   return (
     <main className="flex w-full justify-center my-14">
       <div className="w-[90%] max-w-[1200px] grid grid-cols-3 gap-10">
-       {data.map((item:any,index:number)=>(
+       {data.length>0 ? data.map((item:any,index:number)=>(
         <Link href={`/news/${item.url}`} key={index} className="flex flex-col">
         <div className="h-40 w-full overflow-hidden rounded-xl relative">
           <Image alt="" width={500}  height={500}
@@ -34,7 +34,8 @@ function Content({ data }: { data: any }) {
           {/* <p className="text-sm text-zinc-400 mt-[6px]">12 July 2024</p> */}
         </div>
       </Link>
-       ))}
+       )): <div className="flex items-center justify-center w-full col-span-3"> 
+       <Image alt="" src={"/empty.jpg"} width={400}  height={400} className="rounded-3xl"/></div>}
       </div>
     </main>
   );

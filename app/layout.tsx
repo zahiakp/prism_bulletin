@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: "https://prism-bulletin.vercel.app",
     description: 'Prism Bulletin is a news portal launched in 2024, under Prism Foundation.',
-    images:["https://prism-bulletin.vercel.app/prism logo light.png"]
+    images:["https://prism-bulletin.vercel.app/prism.png"]
   },
   
 }
