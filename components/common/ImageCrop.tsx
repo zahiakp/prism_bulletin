@@ -14,6 +14,7 @@ import "react-image-crop/dist/ReactCrop.css";
 import { canvasPreview } from "./CanvasPreview";
 import { useDebounceEffect } from "./EffectCrop";
 import { MdClose } from "react-icons/md";
+import Image from "next/image";
 
 
 
@@ -377,7 +378,7 @@ export default function ImageCrop({
               minHeight={100}
               // circularCrop
             >
-              <img
+              <Image width={400} height={400}
                 ref={imgRef}
                 alt="Crop me"
                 src={imgSrc}
@@ -390,7 +391,7 @@ export default function ImageCrop({
             <>
             <div className="p-2 bg-zinc-100 rounded-xl text-center my-2">Preview</div>
               <div>
-                <canvas
+                <canvas 
                   ref={previewCanvasRef}
                   style={{
                     border: "1px solid black",
@@ -399,7 +400,7 @@ export default function ImageCrop({
                     height: completedCrop.height,
                   }}
                 />
-                <img src={croppedImageUrl} alt="" />
+                {/* <Image width={400} hi src={croppedImageUrl} alt="" /> */}
               </div>
               <div>
                 <div className="flex justify-center w-full">

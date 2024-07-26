@@ -12,6 +12,7 @@ import {
 } from "react-icons/md";
 import DeleteItem from "./Add/Delete";
 import { decodeId, encodeId } from "@/components/common/Decode";
+import { getRelativeTime } from "@/components/common/DateConvert";
 
 function Content({ article }: { article: any }) {
   const DATA: any = [
@@ -45,7 +46,7 @@ function Content({ article }: { article: any }) {
                   <p className="pl-5 font-semibold">{item?.id}</p>
                   <p className="col-span-4 line-clamp-2">{item?.title}</p>
                   <p className="col-span-2 line-clamp-1">{item?.author}</p>
-                  <p className="col-span-2">{item?.date}</p>
+                  <p className="col-span-2">{getRelativeTime(item?.date)}</p>
                   <p className="">{item.status}</p>
                   <div className="col-span-2 flex items-center gap-2 justify-center">
                     <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center cursor-pointer">

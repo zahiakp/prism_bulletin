@@ -5,6 +5,10 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ImageCrop from "./ImageCrop";
 import { ROOT_URL } from "../data/func";
+import Image from "next/image";
+import { PiEmpty, PiEmptyDuotone } from "react-icons/pi";
+import { CgAdd, CgTrashEmpty } from "react-icons/cg";
+import { GrClearOption } from "react-icons/gr";
 
 
 export const TitleInput = ({
@@ -337,10 +341,11 @@ export function FormUpload({
               }}
             ></div>
           ) :(
-            <img
-              src="/6598519.png"
-              className="duration-300 h-44 opacity-30"
-            />
+            // <Image alt="" width={400} height={400} priority
+            //   src="/6598519.png"
+            //   className="duration-300 h-40 w-auto opacity-30"
+            // />
+            <CgAdd className="text-8xl opacity-30"/>
           )}
           {/* <p className="mt-3 text-gray-400">
             Drag an image here or{" "}
