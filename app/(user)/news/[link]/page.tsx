@@ -4,14 +4,14 @@ import Content from "./Content";
 import { NEWS } from "@/components/data/data";
 import Link from "next/link";
 import SocialShare from "./SocialShare";
+import GuestLayout from "@/components/layouts/GuestLayout";
 
 function page({ params }: { params: any }) {
   const link = params.link;
   const data = NEWS.filter((item: any) => item.url == link);
 
   return (
-    <div className="flex w-full flex-col">
-      <Header />
+    <GuestLayout>
       <main className="flex w-full justify-center my-14">
         <div className="w-[90%] max-w-[1200px] grid grid-cols-3  gap-10">
           <div className="col-span-2">
@@ -39,7 +39,7 @@ function page({ params }: { params: any }) {
           </div>
         </div>
       </main>
-    </div>
+    </GuestLayout>
   );
 }
 

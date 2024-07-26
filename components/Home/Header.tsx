@@ -1,10 +1,7 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 import { BiPlusCircle } from "react-icons/bi";
-import { GoReport, GoVerified } from "react-icons/go";
-import { MdReport } from "react-icons/md";
-import { RiVerifiedBadgeFill } from "react-icons/ri";
-import { SlUserFollow } from "react-icons/sl";
 
 function Header() {
   const [openFollow, setOpenFollow] = useState(false);
@@ -14,7 +11,7 @@ function Header() {
       <div className="w-[90%] max-w-[1200px] flex items-center justify-center md:justify-between duration-300 text-center gap-4 py-6 ">
         <a href="/" className="flex items-center gap-3 text-3xl font-bold">
 
-          <RiVerifiedBadgeFill className="text-green-600" />
+          <Image alt="" src={'/prism.png'} width={35} height={35} priority/>
 
           <p>Prism Bulletin</p>
         </a>
