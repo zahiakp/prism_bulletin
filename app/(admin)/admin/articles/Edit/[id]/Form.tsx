@@ -21,6 +21,7 @@ import { antFilterOption } from "@/components/common/antFillteroption";
 import { ArraytoString, StringtoArray } from "@/components/common/decodeTags";
 import { updateArticle, uploadImage } from "../../Add/func";
 import { id } from "date-fns/locale";
+import { Categories } from "../../Add/Form";
 
 const UploadForm = ({ data }: { data: any }) => {
   const router = useRouter();
@@ -311,7 +312,7 @@ const UploadForm = ({ data }: { data: any }) => {
                 name="type"
                 placeholder="Select Category"
                 label=""
-                items={types}
+                items={Categories}
               />
             </div>
 
