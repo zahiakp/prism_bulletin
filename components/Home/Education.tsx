@@ -9,17 +9,34 @@ import { GoArrowRight } from "react-icons/go";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { NEWS } from "../data/data";
 
+
+const groupedData = NEWS.reduce((acc: any, item: any) => {
+  const category = acc.find((cat: any) => cat.cat === item.cat);
+  
+  if (category) {
+    category.items.push(item);
+  } else {
+    acc.push({ cat: item.cat, items: [item] });
+  }
+  
+  return acc;
+}, []);
+console.log(groupedData);
+
 function Education() {
   return (
-    <main className="flex justify-center mt-10 bg-zinc-100">
-      <section className="w-[90%] max-w-[1200px] flex flex-col border-t border-zinc-200 pt-7">
+    <>
+    {groupedData.map((item: any, index: number) => (
+      item.items.length > 3 && 
+    <main key={index} className={`flex justify-center mt-10 ${index % 2 == 1 ? "bg-zinc-100":"bg-white"} `}> 
+      <section className="w-[90%] max-w-[1200px] flex flex-col pt-7">
         <div className="flex items-center justify-between">
-            <p className="text-3xl font-bold">Education</p>
-            <Link href={`/category/${"Education"}`} className="flex items-center gap-3 hover:gap-4 duration-300 rounded-3xl p-2 px-5 bg-white text-sm"> View All <HiOutlineArrowLongRight className="text-xl"/>
+            <p className="text-3xl font-bold">{item.cat}</p>
+            <Link href={`/category/${item.cat}`} className={`flex items-center gap-3 hover:gap-4 duration-300 rounded-3xl p-2 px-5 ${index % 2 == 1 ?"bg-white":"bg-zinc-100"}  text-sm`}> View All <HiOutlineArrowLongRight className="text-xl"/>
             </Link>
         </div>
         <div className="flex flex-col md:flex-row mt-4">
-          <Swiper
+          <Swiper key={index}
             id="swiper"
             modules={[Autoplay]}
             slidesPerView={3}
@@ -31,13 +48,13 @@ function Education() {
             }}
             className="w-full"
           >
-            {NEWS.filter((item:any)=>item.cat=="Education").map((item: any, index: number) => (
+            {item.items.map((item: any, index: number) => (
               <div key={index} >
-                <SwiperSlide>
+                <SwiperSlide key={index}>
                   <Link href={`/news/${item.url}`} className="flex flex-col mb-10 py-5">
                     <div className="h-40 w-full overflow-hidden rounded-xl  col-span-3 relative">
                       <img
-                        src={item.image}
+                        src={item.image!==""? item.image : "prism thumb.jpg"}
                         className="h-full w-full object-cover"
                       />
                        <p className="absolute bottom-4 right-4 p-[6px] px-4 rounded-lg bg-zinc-100 text-sm w-fit">{item.cat}</p>
@@ -63,7 +80,7 @@ function Education() {
           </Swiper>
         </div>
       </section>
-    </main>
+    </main>))}</>
   );
 }
 

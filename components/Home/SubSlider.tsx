@@ -32,7 +32,7 @@ function SubSlider() {
                   <section className="flex flex-col mb-10">
                     <div className="h-48 w-full overflow-hidden rounded-xl  col-span-3 relative">
                       <img
-                        src={item.image}
+                        src={item.image != "" ? item.image : "prism thumb.jpg"}
                         className="h-full w-full object-cover"
                       />
                        <p className="absolute bottom-4 right-4 p-[6px] px-4 rounded-lg bg-zinc-100 text-sm w-fit">{item.cat}</p>

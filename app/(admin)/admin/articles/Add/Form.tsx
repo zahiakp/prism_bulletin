@@ -1,7 +1,6 @@
 "use client";
 import { Editor } from "primereact/editor";
 import { useState } from "react";
-import { useFormik } from "formik";
 import * as Yup from "yup";
 import {
   FormCusInput,
@@ -21,6 +20,7 @@ import { antFilterOption } from "@/components/common/antFillteroption";
 import { ArraytoString } from "@/components/common/decodeTags";
 import { uploadArticle, uploadImage } from "./func";
 import { TbTruckLoading } from "react-icons/tb";
+import { useFormik } from "formik";
 
 const UploadForm = () => {
   const POST_STATUS = [
@@ -55,29 +55,27 @@ const UploadForm = () => {
         setLoading(true);
         console.log("clicked");
 
-        const imageUploadResult = await uploadImage(values.file);
-        if (imageUploadResult?.success) {
-          console.log("Image Added");
-          const image = imageUploadResult.filename;
-          const newsUploadResult = await uploadArticle(
-            values.title,
-            values.body,
-            image,
-            values.author,
-            values.type,
-            values.date,
-            values.url,
-            ArraytoString(values.tags),
-            values.status
-          );
-          if (newsUploadResult) {
-            toast.success("News uploaded successfully");
-            router.replace("/admin/articles/");
-            router.refresh();
-          } else {
-            toast.error("Something went wrong!");
-          }
-        }
+        // const imageUploadResult = await uploadImage(values.file);
+        // if (imageUploadResult?.success) {
+        //   console.log("Image Added");
+        //   const image = imageUploadResult.filename;
+        //   const newsUploadResult = await uploadArticle(
+        //     values.title,
+        //     values.body,
+        //     image,
+        //     values.type,
+        //     values.url,
+        //     ArraytoString(values.tags),
+        //     values.status
+        //   );
+        //   if (newsUploadResult) {
+        //     toast.success("News uploaded successfully");
+        //     router.replace("/admin/articles/");
+        //     router.refresh();
+        //   } else {
+        //     toast.error("Something went wrong!");
+        //   }
+        // }
       } catch (error) {
         console.error("Error:", error);
         toast.error("Something went wrong!");
@@ -177,7 +175,25 @@ const UploadForm = () => {
               Save & Unlist
             </button>
           </div>
-          <div className="mt-10 p-2 rounded-lg bg-zinc-200 grid gap-2">
+           {/* <div className={` border  rounded-md p-4 grid gap-3 ${
+                formik.errors["file"] && formik.touched["file"]
+                  ? "bg-red-100 border-red-500"
+                  : "bg-white"
+              }`}>
+              <div className="flex justify-between items-center">
+                <p>Select image</p>
+                
+              </div>
+              <FormUpload
+              add_url=""
+              formik={formik}
+              label="Upload Image"
+              placeholder="Select Item"
+              name="image"
+              fileTypes=".jpg,.jpeg,.png"
+            />
+            </div> */}
+          {/* <div className="mt-10 p-2 rounded-lg bg-zinc-200 grid gap-2"> */}
             {/* <FormUpload
               add_url=""
               formik={formik}
@@ -186,9 +202,9 @@ const UploadForm = () => {
               name="file"
               fileTypes=".jpg,.jpeg,.png"
             /> */}
-            <input type="file" className="w-full p-3 px-5 border border-blue-300 rounded-[15px] outline-blue-500" name={"image"} onChange={formik.handleChange} value={formik.values["image"]}
+            {/* <input type="file" className="w-full p-3 px-5 border border-blue-300 rounded-[15px] outline-blue-500" name={"image"} onChange={formik.handleChange} value={formik.values["image"]}
             />
-          </div>
+          </div> */}
 
           <div className="mt-2 p-2 rounded-lg bg-zinc-200 grid gap-2">
             {/* <div className={` border  rounded-md p-4 grid gap-3 ${

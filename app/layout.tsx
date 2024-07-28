@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: 'Prism Bulletin',
   description: 'Prism Bulletin is a news portal launched in 2024, under Prism Foundation.',
   keywords: ['Prism', 'Foundation', 'Bulletin', 'News', 'Portal', 'Garden','Markaz'],
-  metadataBase: new URL('https://prism-bulletin.vercel.app'),
+  metadataBase: new URL('https://bulletin.prismonline.org/'),
   openGraph: {
-    url: "https://prism-bulletin.vercel.app",
+    url: "https://bulletin.prismonline.org/",
     description: 'Prism Bulletin is a news portal launched in 2024, under Prism Foundation.',
-    images:["https://prism-bulletin.vercel.app/prism.png"]
+    images:["https://bulletin.prismonline.org/prism thumb.jpg"]
   },
   
 }
