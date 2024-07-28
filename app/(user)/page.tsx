@@ -15,7 +15,7 @@ export default function Home() {
       <MainSlider/>
       <SubSlider/>
     <Education/>
-    <Health/>
+    {/* <Health/> */}
    </GuestLayout>
   );
 }

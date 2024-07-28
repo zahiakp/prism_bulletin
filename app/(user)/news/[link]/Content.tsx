@@ -9,7 +9,7 @@ function Content({ data }: { data: any }) {
       <h6 className="text-5xl font-bold leading-[60px]">{newsData.title}</h6>
       <div className="w-full h-[450px] overflow-hidden rounded-2xl my-7">
         <img
-          src={`/${newsData.image}`}
+          src={`/${newsData.image!==""? newsData.image : "prism thumb.jpg"}`}
           alt=""
           className="w-full h-full object-cover"
         />

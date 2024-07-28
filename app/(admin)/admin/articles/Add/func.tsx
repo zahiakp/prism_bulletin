@@ -22,9 +22,7 @@ export async function uploadArticle(
   title: string,
   body: string,
   image: string,
-  author: string,
   type: string,
-  date: string,
   url: string,
   tags: string,
   status:string
@@ -35,7 +33,7 @@ export async function uploadArticle(
     const response = await axios.post(
       URL,
       JSON.stringify({
-        title,body,image,author,type,date,url,tags,status
+        title,body,image,type,url,tags,status
       })
     );
 

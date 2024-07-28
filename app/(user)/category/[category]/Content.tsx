@@ -11,11 +11,11 @@ function Content({ data }: { data: any }) {
   return (
     <main className="flex w-full justify-center my-14">
       <div className="w-[90%] max-w-[1200px] grid grid-cols-3 gap-10">
-       {data.length>0 ? data.map((item:any,index:number)=>(
+       {data.length> 0 ? data.map((item:any,index:number)=>(
         <Link href={`/news/${item.url}`} key={index} className="flex flex-col">
         <div className="h-40 w-full overflow-hidden rounded-xl relative">
           <Image alt="" width={500}  height={500}
-            src={`/${item.image}`}
+            src={`/${item.image!==""? item.image : "prism thumb.jpg"}`}
             className="h-full w-full object-cover"
           />
           <p className="absolute bottom-4 right-4 p-[6px] px-4 rounded-lg bg-zinc-100 text-sm w-fit">

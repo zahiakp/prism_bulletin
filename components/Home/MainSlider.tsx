@@ -26,7 +26,7 @@ function MainSlider() {
             }}
             className="w-full"
           >
-            {NEWS.map((item: any, index: number) => (
+            {NEWS.slice(-5).map((item: any, index: number) => (
 
               <div key={index} className="cursor-pointer">
                 <SwiperSlide>
@@ -34,12 +34,12 @@ function MainSlider() {
                     <section className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-10 md:h-[450px] ">
                       <div className="h-[200px] md:h-full w-full overflow-hidden rounded-xl relative col-span-3 ">
                         <img
-                          src={item.image}
+                          src={item.image!=""?item.image:"prism thumb.jpg"}
                           className="h-full w-full object-cover"
                         />
                       </div>
                       <div className="col-span-2">
-                        <p className="p-2 px-5 rounded-3xl bg-zinc-200  font-semibold text-sm w-fit">
+                        <p className="p-2 px-5 rounded-3xl bg-zinc-100  font-semibold text-sm w-fit">
                           {item.cat}
                         </p>
                         <h6 className=" text-2xl md:text-3xl font-bold mt-2 md:mt-3 line-clamp-2 md:line-clamp-3">
