@@ -21,3 +21,8 @@
 }.sideWidth-bn{
   width: 370px !important;
 }
+.ck-editor__editable {
+  min-height: 300px; /* Set the desired height */
+  max-height: 600px; /* Optional: Set a maximum height */
+  overflow: auto;    /* Ensures scrollbars appear if needed */
+}

@@ -33,10 +33,10 @@ function Content({ article }: { article: any }) {
                   key={index}
                   className="p-5 border bg-white shadow-sm  hover:shadow-lg hover:scale-[1.005] duration-200 rounded-xl grid grid-cols-11 gap-5 items-center"
                 >
-                  <p className="pl-5 font-semibold">{item?.id}</p>
+                  <p className="pl-5 font-bold">{item?.id}</p>
                   <p className="col-span-4 line-clamp-2">{item?.title}</p>
-                  <p className="col-span-2 line-clamp-1">{item?.category}</p>
-                  <p className="col-span-2">{getRelativeTime(item?.date)}</p>
+                  <p className="col-span-2 line-clamp-1 text-center font-semibold text-blue-600">{item?.category}</p>
+                  <p className="col-span-2 text-center">{getRelativeTime(item?.date)}</p>
                   <div className="col-span-2 flex items-center gap-2 justify-center">
                     <div className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center cursor-pointer">
                       <MdOutlinePublishedWithChanges className="text-xl text-zinc-600 " />

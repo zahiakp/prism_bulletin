@@ -8,7 +8,7 @@ import { NEWS } from '@/components/data/data'
 
 async function page() {
   const Articles = await getArticle()
-  console.log(Articles?.data);
+  // console.log(Articles?.data);
   
   return (
     <AdminLayout active={"Articles"}>

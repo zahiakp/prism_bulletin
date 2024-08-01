@@ -7,14 +7,18 @@ import SubSlider from "@/components/Home/SubSlider";
 import AdminLayout from "@/components/layouts/AdminLayout";
 import GuestLayout from "@/components/layouts/GuestLayout";
 import Image from "next/image";
+import { getArticle } from "../(admin)/admin/articles/Add/func";
 
-export default function Home() {
+export default async function Home() {
+  const news = await getArticle()
+  // console.log(news);
+  
   return (
     <GuestLayout>
       <SubHeader/>
-      <MainSlider/>
-      <SubSlider/>
-    <Education/>
+      <MainSlider data={news?.data}/>
+      <SubSlider data={news?.data}/>
+    <Education data={news?.data}/>
     {/* <Health/> */}
    </GuestLayout>
   );
