@@ -28,11 +28,11 @@ function Education() {
     <>
     {groupedData.map((item: any, index: number) => (
       item.items.length > 3 && 
-    <main key={index} className={`flex justify-center mt-10 ${index % 2 == 1 ? "bg-zinc-100":"bg-white"} `}> 
+    <main key={index} className={`flex justify-center mt-10 ${index % 2 == 0 ? "bg-zinc-100":"bg-white"} `}> 
       <section className="w-[90%] max-w-[1200px] flex flex-col pt-7">
         <div className="flex items-center justify-between">
             <p className="text-3xl font-bold">{item.cat}</p>
-            <Link href={`/category/${item.cat}`} className={`flex items-center gap-3 hover:gap-4 duration-300 rounded-3xl p-2 px-5 ${index % 2 == 1 ?"bg-white":"bg-zinc-100"}  text-sm`}> View All <HiOutlineArrowLongRight className="text-xl"/>
+            <Link href={`/category/${item.cat}`} className={`flex items-center gap-3 hover:gap-4 duration-300 rounded-3xl p-2 px-5 ${index % 2 == 0 ?"bg-white":"bg-zinc-100"}  text-sm`}> View All <HiOutlineArrowLongRight className="text-xl"/>
             </Link>
         </div>
         <div className="flex flex-col md:flex-row mt-4">
