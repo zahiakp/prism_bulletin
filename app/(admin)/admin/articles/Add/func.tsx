@@ -60,9 +60,7 @@ export async function updateArticle(
   title: string,
   body: string,
   image: string,
-  author: string,
   type: string,
-  date: string,
   url: string,
   tags: string,
   status:string
@@ -73,7 +71,7 @@ export async function updateArticle(
     const response = await axios.put(
       URL,
       JSON.stringify({
-        title,body,image,author,type,date,url,tags,status
+        title,body,image,type,url,tags,status
       })
     );
 

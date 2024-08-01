@@ -1,15 +1,17 @@
 import { Select } from "antd";
 import { useEffect, useState } from "react";
 import { log } from "console";
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import ImageCrop from "./ImageCrop";
 import { ROOT_URL } from "../data/func";
 import Image from "next/image";
 import { PiEmpty, PiEmptyDuotone } from "react-icons/pi";
 import { CgAdd, CgTrashEmpty } from "react-icons/cg";
 import { GrClearOption } from "react-icons/gr";
-
+import { Editor } from "primereact/editor";
+import { TbPhotoEdit } from "react-icons/tb";
+import { BiSolidImageAdd } from "react-icons/bi";
 
 export const TitleInput = ({
   formik,
@@ -25,7 +27,11 @@ export const TitleInput = ({
   return (
     <div className="py-2">
       <textarea
-        className={`w-full p-3 px-5 border-b  outline-none focus:border-b-2 rounded ${formik.errors[name] && formik.touched[name] ? "bg-red-50 border-red-500 border-b-2" : "bg-white border-black"}  h-40 text-xl font-semibold`}
+        className={`w-full p-3 px-5 border-b  outline-none focus:border-b-2 rounded ${
+          formik.errors[name] && formik.touched[name]
+            ? "bg-red-50 border-red-500 border-b-2"
+            : "bg-white border-black"
+        }  h-40 text-xl font-semibold`}
         name={name}
         onChange={formik.handleChange}
         value={formik.values[name]}
@@ -44,56 +50,25 @@ export const TitleInput = ({
 
 interface BodyInputProps {
   formik: any;
-  placeholder: string;
   name: string;
   label: string;
 }
 
-export const BodyInput: React.FC<BodyInputProps> = ({ formik, placeholder, name, label }) => {
+export const BodyInput: React.FC<BodyInputProps> = ({
+  formik,
+  name,
+  label,
+}) => {
   const handleEditorChange = (event: any, editor: any) => {
     const data = editor.getData();
     formik.setFieldValue(name, data);
   };
 
-  const editorConfiguration = {
-    toolbar: [
-      'heading', '|',
-      'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', '|',
-      'link', 'anchor', '|',
-      'bulletedList', 'numberedList', 'todoList', '|',
-      'blockQuote', 'insertTable', 'imageUpload', '|',
-      'alignment', 'outdent', 'indent', '|',
-      'fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', '|',
-      'highlight', '|',
-      'removeFormat', 'undo', 'redo', '|',
-      'code', 'codeBlock', '|',
-      'horizontalLine', 'pageBreak', '|',
-      'mediaEmbed', 'htmlEmbed', '|',
-      'specialCharacters', 'findAndReplace', '|',
-      'selectAll', 'sourceEditing'
-    ],
-    image: {
-      toolbar: [
-        'imageTextAlternative', 'imageStyle:full', 'imageStyle:side', 'linkImage'
-      ]
-    },
-    table: {
-      contentToolbar: [
-        'tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties'
-      ]
-    },
-    mediaEmbed: {
-      previewsInData: true
-    }
-  };
-  
-
   return (
     <div className="p-2 bg-white">
-      <div className="text-sm text-primary-600 my-1 ">{label}</div>
+      <div className="text-sm text-primary-600 my-1 "></div>
       <CKEditor
         editor={ClassicEditor}
-        // config={editorConfiguration}
         data={formik.values[name]}
         onChange={handleEditorChange}
       />
@@ -104,13 +79,9 @@ export const BodyInput: React.FC<BodyInputProps> = ({ formik, placeholder, name,
           </p>
         )}
       </div>
-    
     </div>
   );
 };
-
-
-
 
 const FormInput = ({
   formik,
@@ -165,7 +136,11 @@ export const FormCusInput = ({
       <div className="text-sm text-primary-600 my-1">{label}</div>
       <input
         type={type ?? "text"}
-        className={`w-full p-3 px-5 border-b ${formik.errors[name] && formik.touched[name] ? "border-red-500 bg-red-200 placeholder:text-red-500":"border-zinc-900 bg-zinc-100"} focus:border-b-2   rounded-md outline-none`}
+        className={`w-full p-3 px-5 border-b ${
+          formik.errors[name] && formik.touched[name]
+            ? "border-red-500 bg-red-200 placeholder:text-red-500"
+            : "border-zinc-900 bg-zinc-100"
+        } focus:border-b-2   rounded-md outline-none`}
         name={name}
         onChange={formik.handleChange}
         value={formik.values[name]}
@@ -314,13 +289,17 @@ export function FormUpload({
   const [view, setView] = useState(false);
   const [img, setImg] = useState<any>(null);
 
-
   return (
     <>
       <div className="grid gap-2">
-        <div className={`w-full h-72 rounded-lg border ${(formik.errors[name] && formik.touched[name]) ? "bg-red-100 border-red-500" : "bg-white border-zinc-900"}  flex flex-col items-center justify-center group `}>
-
-          { img ? (
+        <div
+          className={`w-full h-72 rounded-lg border ${
+            formik.errors[name] && formik.touched[name]
+              ? "bg-red-100 border-red-500"
+              : "bg-white border-zinc-900"
+          }  flex flex-col items-center justify-center group `}
+        >
+          {img ? (
             <div
               className="h-full w-full rounded-lg "
               style={{
@@ -330,7 +309,7 @@ export function FormUpload({
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
-          ) : formik.values.file ?(
+          ) : formik.values.file ? (
             <div
               className="h-full w-full rounded-lg "
               style={{
@@ -340,32 +319,19 @@ export function FormUpload({
                 backgroundRepeat: "no-repeat",
               }}
             ></div>
-          ) :(
-            // <Image alt="" width={400} height={400} priority
-            //   src="/6598519.png"
-            //   className="duration-300 h-40 w-auto opacity-30"
-            // />
-            <CgAdd className="text-8xl opacity-30"/>
+          ) : (
+            <BiSolidImageAdd className="text-8xl opacity-50" />
           )}
-          {/* <p className="mt-3 text-gray-400">
-            Drag an image here or{" "}
-            <span className="text-blue-400">upload a file</span>
-          </p>
-          {formik.errors[name] && formik.touched[name] && (
-            <p className="text-red-600 text-sm my-1 ml-1">
-              {formik.errors[name]}
-            </p>
-          )} */}
 
           <div></div>
         </div>
         <button
-              type="button"
-              onClick={() => setView(true)}
-              className={`w-full bg-zinc-900 text-white text-md font-semibold p-2 rounded-md`}
-            >
-              {img || formik_image ? "Change Image":"Select Image"}
-            </button>
+          type="button"
+          onClick={() => setView(true)}
+          className={`w-full bg-zinc-900 text-white text-md font-semibold p-2 rounded-md`}
+        >
+          {img || formik_image ? "Change Image" : "Select Image"}
+        </button>
       </div>
       {view && (
         <ImageCrop
