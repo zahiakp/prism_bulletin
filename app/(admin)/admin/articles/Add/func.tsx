@@ -39,11 +39,11 @@ export async function uploadArticle(
 
     if (response.status === 201) {
       const data = response.data;
-      console.log("Article Added");
+      console.log("News Added");
       return true;
     } else {
       const data = response.data;
-      console.log("Failed to Add Article");
+      console.log("Failed to Add News");
       return false;
     }
   } catch (error: any) {
@@ -119,7 +119,7 @@ export async function getArticle(
     if (response.status === 200) {
       return response.data;
     } else {
-      console.error("Failed to get Article:", response.statusText);
+      console.error("Failed to get News:", response.statusText);
       return null; 
     }
   } catch (error) {

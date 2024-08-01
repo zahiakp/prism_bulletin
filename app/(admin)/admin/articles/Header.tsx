@@ -21,7 +21,7 @@ function Header() {
           </div>
         </div>
         <div className="flex gap-3 items-center justify-den">
-        <div className="p-[6px] pr-4 bg-white shadow-md rounded-xl flex items-center  gap-3">
+        <div className="p-[6px] pr-4 bg-white shadow-md rounded-lg flex items-center  gap-3">
           <select
             // onChange={handleChange}
             // value={selectedValue}
@@ -43,7 +43,7 @@ function Header() {
         </div>{" "}
         <Link
           href={"/admin/articles/Add"}
-          className="gap-2 cursor-pointer p-[8px] px-4 bg-zinc-800 hover:shadow-lg hover:-translate-y-1 duration-200 rounded-lg text-white w-fit shadow-lg flex items-center"
+          className="gap-2 cursor-pointer p-[8px] px-4 bg-zinc-800 hover:shadow-lg hover:-translate-y-1 duration-200 rounded-md text-white w-fit shadow-lg flex items-center"
         >
           <RiAddCircleFill />
           Create New

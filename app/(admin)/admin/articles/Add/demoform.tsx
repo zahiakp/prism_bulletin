@@ -25,7 +25,7 @@ function UploadForm() {
   const [cat, setCat] = useState<any>(null);
   const formik = useFormik({
     initialValues: {
-        file: "",
+        // file: "",
         image: "",
         title: "",
         body: "",
@@ -41,34 +41,35 @@ function UploadForm() {
        type: Yup.string().required("Category is required"),
        author: Yup.string().required("Author is required"),
        url: Yup.string().required("URL is required"),
-       tags: Yup.array().min(1, "At least one tag is required"),
+      //  tags: Yup.array().min(1, "At least one tag is required"),
     }),
     onSubmit: async (values) => {
         try {
           setLoading(true);
+          console.log("true");
+          
           // const imageUploadResult = await uploadImage(values.file);
           // if (imageUploadResult?.success) {
           //   console.log("Image Added");
             const image = "prism.jpg"
-            // const newsUploadResult = await uploadArticle(
-            //   values.title,
-            //   values.body,
-            //   image,
-            //   values.type,
-            //   values.url,
-            //   ArraytoString(values.tags),
-            //   values.status
-            // );
-            // if (newsUploadResult) {
-            //   toast.success("News uploaded successfully");
-            //   router.replace("/articles/");
-            //   router.refresh();
-            // } else {
-            //   toast.error("Something went wrong!");
-            // }
+            const newsUploadResult = await uploadArticle(
+              values.title,
+              values.body,
+              image,
+              values.type,
+              values.url,
+              ArraytoString(values.tags),
+              values.status
+            );
+            if (newsUploadResult) {
+              toast.success("News uploaded successfully");
+              router.replace("/admin/articles/");
+              router.refresh();
+            } else {
+              toast.error("Something went wrong!");
+            }
           // }
         } catch (error) {
-        //   console.error("Error:", error);
           toast.error("Something went wrong!");
         } finally {
           setLoading(false);
@@ -84,21 +85,27 @@ function UploadForm() {
         className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 px-10"
       >
         <div>
-          <FormUpload
+          {/* <FormUpload
             formik={formik}
             label="Image (optional)"
             name="file"
             placeholder="Image"
             fileTypes=".png,.jpg,.jpeg,.webp"
-          />
+          /> */}
           <FormInput
             formik={formik}
             label=" title"
             name="title"
             placeholder="title"
           />
+          <FormInput
+            formik={formik}
+            label=" body"
+            name="body"
+            placeholder="body"
+          />
           <div className="py-2">
-      <div className="text-sm text-primary-600 my-1">{"cat"}</div>
+      <div className="text-sm text-primary-600 my-1">{"category"}</div>
 <select
           name="type"
           id="cars"
@@ -117,34 +124,22 @@ function UploadForm() {
         )}
       </div>
     </div>
-          <FormInput
-            formik={formik}
-            type="number"
-            label="Original Price"
-            name="price"
-            placeholder="Original Price"
-          />
-          <FormInput
-            formik={formik}
-            type="number"
-            label="Discount Price"
-            name="discount"
-            placeholder="Discount Price"
-          />
+          
         </div>
-        <div>
+        <div><FormInput
+            formik={formik}
+            type="text"
+            label="url"
+            name="url"
+            placeholder="url"
+          />
           <FormTextArea
             formik={formik}
-            label=" Description (optional)"
-            name="description"
-            placeholder="Description"
+            label=" tags"
+            name="tags"
+            placeholder="tags"
           />
-          <FormInput
-            formik={formik}
-            label="Size (optional)"
-            name="size"
-            placeholder="size"
-          />
+          
         </div>
         <div className="flex items-center gap-4 w-full justify-center col-span-2">
           <Button loading={loading} />
