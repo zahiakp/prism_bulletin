@@ -32,7 +32,7 @@ function MainSlider({data}:{data:any}) {
 
               <div key={index} className="cursor-pointer">
                 <SwiperSlide>
-                  <Link href={`/news/${item.url}`}>
+                  <Link href={`/${item.url}`}>
                     <section className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-10 md:h-[450px] ">
                       <div className="h-[200px] md:h-full w-full overflow-hidden rounded-xl relative col-span-3 ">
                         <img

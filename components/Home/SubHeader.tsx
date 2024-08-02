@@ -8,7 +8,7 @@ function SubHeader({active}:{active?:any}) {
       <section className="w-[90%] max-w-[1200px] flex items-center justify-between py-5 md:py-10 overflow-x-auto">
         <ul className="flex gap-3 ">
           {["All","General","Education","Health","Culture","Commerce","Agriculture","Living",].map((item: any, index: number) => (
-            <Link href={`/category/${item}`}
+            <Link href={`/cat/${item}`}
               key={index}
               className={`p-[6px] px-4 ${active ==item ? "bg-zinc-900 text-white":"bg-zinc-100"}  text-sm rounded-3xl duration-300 hover:bg-zinc-900 hover:text-white cursor-pointer`}
             >

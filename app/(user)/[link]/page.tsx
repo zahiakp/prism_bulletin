@@ -6,6 +6,8 @@ import Link from "next/link";
 import SocialShare from "./SocialShare";
 import GuestLayout from "@/components/layouts/GuestLayout";
 import { getArticle } from "@/app/(admin)/admin/articles/Add/func";
+import { metadata } from "./Metadata";
+
 
 async function page({ params }: { params: any }) {
   const link = params.link;
