@@ -6,7 +6,8 @@ import Link from "next/link";
 import SocialShare from "./SocialShare";
 import GuestLayout from "@/components/layouts/GuestLayout";
 import { getArticle } from "@/app/(admin)/admin/articles/Add/func";
-import { metadata } from "./Metadata";
+import Meta from "./head";
+
 
 
 async function page({ params }: { params: any }) {
@@ -14,7 +15,9 @@ async function page({ params }: { params: any }) {
   const art = await getArticle();
 const data = art?.data?.filter((item: any) => item.url == link);
   return (
+    
     <GuestLayout>
+      <Meta data={data[0]}/>
       <main className="flex w-full justify-center my-14">
         <div className="w-[90%] max-w-[1200px] grid grid-cols-1 md:grid-cols-3  gap-10">
           <div className="col-span-2">
