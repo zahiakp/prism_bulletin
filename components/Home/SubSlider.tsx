@@ -39,7 +39,7 @@ function SubSlider({data}:{data:any}) {
             {data?.map((item: any, index: number) => (
               <div key={index} >
                 <SwiperSlide>
-                  <Link href={`/news/${item.url}`}>
+                  <Link href={`/${item.url}`}>
                   {/* <section className="flex flex-col mb-10">
                     <div className="h-48 w-full overflow-hidden rounded-xl  col-span-3 relative">
                       <img

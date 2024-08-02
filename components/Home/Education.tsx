@@ -60,7 +60,7 @@ function Education({data}:{data:any}) {const groupedData = data?.reduce((acc: an
             {item?.items?.map((item: any, index: number) => (
               <div key={index} >
                 <SwiperSlide key={index}>
-                <Link href={`/news/${item.url}`}>
+                <Link href={`/${item.url}`}>
                   {/* <section className="flex flex-col mb-10">
                     <div className="h-48 w-full overflow-hidden rounded-xl  col-span-3 relative">
                       <img
