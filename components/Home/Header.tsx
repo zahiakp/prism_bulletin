@@ -27,7 +27,7 @@ function Header() {
       </div>
       {openFollow && (
         <dialog id="my_modal_3" className="modal modal-open">
-          <div className="modal-box">
+          <div className="modal-box w-fit p-8">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}
               <button
@@ -39,15 +39,15 @@ function Header() {
             </form>
             <h3 className="font-bold text-lg">Follow Us</h3>
             <div className="flex items-center gap-3 justify-center mt-3">
-              {[{icon:<IoLogoWhatsapp />,color:"purple"},{icon:<FaFacebookF />,color:"blue"},{icon:<AiFillInstagram />,color:"blue"},{icon:<FaXTwitter />,color:"blue"},].map((item: any, index: number) => (
-                <div
-                  key={index}
-                  className={`w-24 h-24 flex items-center justify-center rounded-2xl bg-zinc-100 text-6xl text-zinc-600 hover:bg-blue-100 hover:text-blue-600 duration-300 group cursor-pointer`}
+              {[{icon:<IoLogoWhatsapp />,color:"purple",url:"https://wa.me/+919048338225"},{icon:<FaFacebookF />,color:"blue",url:"https://www.facebook.com/PRISMFoundationOfficial"},{icon:<AiFillInstagram />,color:"blue",url:"https://www.instagram.com/prismfoundationofficial?igsh=ZWZ3aHR6bnB4c2M2"}].map((item: any, index: number) => (
+                <a href={item.url} target="_blank" key={index}><div
+                  
+                  className={`w-20 h-20 flex items-center justify-center rounded-2xl bg-zinc-100 text-5xl text-zinc-600 hover:bg-blue-100 hover:text-blue-600 duration-300 group cursor-pointer`}
                 >
                   <div className="group-hover:scale-105 duration-150">
                     {item.icon}
                   </div>
-                </div>
+                </div></a>
               ))}
             </div>
           </div>
