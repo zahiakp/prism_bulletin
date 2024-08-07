@@ -24,7 +24,7 @@ function Content({ data }: { data: any }) {
   return (
     <main className="flex flex-col ">
       <h6 className="text-5xl font-bold leading-[60px]">{newsData.title}</h6>
-      {getRelativeTime(data?.date)}
+      {getRelativeTime(newsData?.date)}
       <div className="w-full h-[450px] overflow-hidden rounded-2xl my-7">
         <img
           src={newsData.image!=""? `${ROOT_URL}uploads/news/${newsData.image}`:"prism thumb.jpg"}
