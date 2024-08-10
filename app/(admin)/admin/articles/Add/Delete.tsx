@@ -11,7 +11,7 @@ const DeleteItem = ({ id }: { id: any }) => {
   // const ids = decodeId(id)
   const router = useRouter();
   return (
-    <button
+    <button data-tip="Delete"
       onClick={async () => {
         if (confirm("Are you sure you want to delete")) {
           await deleteArticle(id).then((res: any) => {
@@ -27,7 +27,7 @@ const DeleteItem = ({ id }: { id: any }) => {
           });
         }
       }}
-      className="h-10 w-10 rounded-lg bg-red-50 flex items-center justify-center cursor-pointer"
+      className="h-10 w-10 rounded-lg bg-red-50 flex items-center justify-center cursor-pointer tooltip"
     >
       <MdDeleteOutline className="text-xl text-red-500 " />
     </button>

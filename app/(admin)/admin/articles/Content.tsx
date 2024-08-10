@@ -119,7 +119,7 @@ function Content({ article }: { article: any }) {
         <p className="col-span-4">Title</p>
         <p className="col-span-2">category</p>
         <p className="col-span-2">Date</p>
-        <p className="col-span-2"></p>
+        <p className="col-span-2">Actions</p>
       </div>
       {filteredData ? (
         <>
@@ -136,12 +136,12 @@ function Content({ article }: { article: any }) {
                   <p className="col-span-2 line-clamp-1 text-center font-semibold text-blue-600">{item?.category}</p>
                   <p className="col-span-2 text-center">{getRelativeTime(item?.date)}</p>
                   <div className="col-span-2 flex items-center gap-2 justify-center">
-                    <div onClick={()=>setImageView(item?.image)} className="h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center cursor-pointer">
+                    <div data-tip="View Image" onClick={()=>setImageView(item?.image)} className="tooltip h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center cursor-pointer">
                       <TbPhotoUp  className="text-xl text-zinc-600 " />
                     </div>
-                    <a
+                    <a data-tip="Edit"
                       href={`/admin/articles/Edit/${encodeId(item?.id)}`}
-                      className="h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center cursor-pointer"
+                      className="tooltip h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center cursor-pointer"
                     >
                       <LuFileEdit className="text-xl text-blue-600 " />
                     </a>
