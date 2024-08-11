@@ -14,7 +14,7 @@ function Report({ inv}: { inv: any;}) {
     datasets: [
       {
         label: "View",
-        backgroundColor: "rgba(255, 172, 100, 0.5)",
+        backgroundColor: "rgba(255, 172, 100, 0.2)",
         borderColor: "rgba(255, 172, 100, 1)",
         pointBackgroundColor: "rgba(255, 172, 100, 1)",
         data: [],
@@ -32,7 +32,7 @@ function Report({ inv}: { inv: any;}) {
       // },
       {
         label: "Share",
-        backgroundColor: "rgba(88, 188, 116, 0.5)",
+        backgroundColor: "rgba(88, 188, 116, 0.2)",
         borderColor: "rgba(88, 188, 116, 1)",
         pointBackgroundColor: "rgba(88, 188, 116, 1)",
         data: [],
@@ -270,7 +270,7 @@ function Report({ inv}: { inv: any;}) {
 
   return (
     <div className="report flex flex-col items-center justify-center w-full mt-10">
-      <div className="flex justify-between w-full"><h6 className="text-3xl font-semibold">Sales Report</h6><div className="p-2 pl-4 w-60 bg-white rounded-xl flex items-center shadow-lg gap-3">
+      <div className="flex justify-between w-full"><h6 className="text-3xl font-semibold">Report</h6><div className="p-2 pl-4 w-60 bg-white rounded-xl flex items-center shadow-lg gap-3">
         <p className="text-zinc-400">Period</p>
         <select
           value={period}
@@ -287,27 +287,21 @@ function Report({ inv}: { inv: any;}) {
       </div></div>
       <div className="flex gap-4 py-10 w-full flex-wrap">
         <div className="flex flex-col justify-center rounded-2xl overflow-hidden">
-          <div className="bg-zinc-200 py-2 px-5">Sales Count</div>
+          <div className="bg-zinc-200 py-2 px-5">Post Count</div>
           <div className="bg-white text-[50px] px-10">
             {salesMetrics.posts || 0}
           </div>
         </div>
         <div className="flex flex-col justify-center rounded-2xl overflow-hidden">
-          <div className="bg-zinc-200 py-2 px-5">Total Revenue</div>
+          <div className="bg-zinc-200 py-2 px-5">Total Views</div>
           <div className="bg-white text-[50px] px-10">
             ₹{salesMetrics.views}
           </div>
         </div>
         <div className="flex flex-col justify-center rounded-2xl overflow-hidden">
-          <div className="bg-zinc-200 py-2 px-5">Get Paid</div>
+          <div className="bg-zinc-200 py-2 px-5">Total Shares</div>
           <div className="bg-white text-[50px] px-10">
             ₹{salesMetrics.shares}
-          </div>
-        </div>
-        <div className="flex flex-col justify-center rounded-2xl overflow-hidden">
-          <div className="bg-zinc-200 py-2 px-5">Remaining Payment</div>
-          <div className="bg-white text-[50px] px-10">
-            {/* ₹{salesMetrics.totalAmount - salesMetrics.advancePayment} */}
           </div>
         </div>
       </div>
