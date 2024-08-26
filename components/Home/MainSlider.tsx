@@ -9,6 +9,7 @@ import { NEWS } from "../data/data";
 import Link from "next/link";
 import { ROOT_URL } from "../data/func";
 import { getRelativeTime } from "../common/DateConvert";
+import { encodeId } from "../common/Decode";
 
 
 function MainSlider({data}:{data:any}) {
@@ -28,11 +29,11 @@ function MainSlider({data}:{data:any}) {
             }}
             className="w-full"
           >
-            {data?.slice(-5)?.map((item: any, index: number) => (
+            {data?.slice(5)?.map((item: any, index: number) => (
 
               <div key={index} className="cursor-pointer">
                 <SwiperSlide>
-                  <Link href={`/${item.url}`}>
+                  <Link href={`/${item.url+'_'+encodeId(item.id)}`}>
                     <section className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-10 md:h-[450px] ">
                       <div className="h-[200px] md:h-full w-full overflow-hidden rounded-xl relative col-span-3 ">
                         <img

@@ -3,8 +3,8 @@
 import React from 'react';
 import {FacebookShareButton,FacebookIcon,TwitterShareButton,TwitterIcon,LinkedinShareButton,LinkedinIcon,PinterestShareButton,PinterestIcon,EmailShareButton,EmailIcon, WhatsappShareButton, WhatsappIcon,} from 'react-share';
 
-const SocialShare = ({ data1 }:{data1:any}) => {
-    const data = data1[0];
+const SocialShare = ({ data }:{data:any}) => {
+    // const data = data1[0];
   return (
     <div className="social-share flex gap-2">
       <FacebookShareButton url={data.url} title={data.title} hashtag="#yourhashtag">
