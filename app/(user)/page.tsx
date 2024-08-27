@@ -8,6 +8,7 @@ import AdminLayout from "@/components/layouts/AdminLayout";
 import GuestLayout from "@/components/layouts/GuestLayout";
 import Image from "next/image";
 import { getArticle } from "../(admin)/admin/articles/Add/func";
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const news = await getArticle()
