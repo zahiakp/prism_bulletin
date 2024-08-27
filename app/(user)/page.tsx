@@ -19,7 +19,6 @@ export default async function Home() {
       <MainSlider data={news?.data}/>
       <SubSlider data={news?.data}/>
     <Education data={news?.data}/>
-    {/* <Health/> */}
    </GuestLayout>
   );
 }
