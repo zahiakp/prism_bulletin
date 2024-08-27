@@ -2,6 +2,7 @@ import AdminLayout from '@/components/layouts/AdminLayout'
 import React from 'react';
 import Graph from '../../../components/(admin)/Graph'
 import { getArticle } from './articles/Add/func';
+export const dynamic = "force-dynamic";
 
 async function page() {
   const art = await getArticle()
