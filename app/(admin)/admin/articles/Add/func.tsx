@@ -147,6 +147,89 @@ export async function getArticlebyId(
   }
 }
 
+export async function getArticlebyCategory(
+  category:string
+) {
+const URL: string = `${ROOT_URL}news/actions.php?api=${API_KEY}&category=${category}`;
+
+try {
+  const response = await axios.get(URL);
+
+  if (response.status === 200) {
+    return response.data;
+  } else {
+    console.error(`Failed to get ${category} Articles :`, response.statusText);
+    return null; 
+  }
+} catch (error) {
+  console.error("Error:", error);
+  return null;
+}
+}
+
+export async function getArticlebyCount(
+  count:string
+) {
+const URL: string = `${ROOT_URL}news/actions.php?api=${API_KEY}&count=${count}`;
+
+try {
+  const response = await axios.get(URL);
+
+  if (response.status === 200) {
+    return response.data;
+  } else {
+    console.error(`Failed to get ${count} Articlesb:`, response.statusText);
+    return null; 
+  }
+} catch (error) {
+  console.error("Error:", error);
+  return null;
+}
+}
+
+export async function getArticlebyCategorywithCount(
+  count:string,category:string
+) {
+const URL: string = `${ROOT_URL}news/actions.php?api=${API_KEY}&count=${count}&category=${category}`;
+
+try {
+  const response = await axios.get(URL);
+
+  if (response.status === 200) {
+    return response.data;
+  } else {
+    console.error(`Failed to get ${count} Articlesb:`, response.statusText);
+    return null; 
+  }
+} catch (error) {
+  console.error("Error:", error);
+  return null;
+}
+}
+
+
+export async function getArticlesasNewArray(
+) {
+const URL: string = `${ROOT_URL}news/actions.php?api=${API_KEY}&action=catbasedarray`;
+
+try {
+  const response = await axios.get(URL);
+
+  if (response.status === 200) {
+    return response.data;
+  } else {
+    console.error(`Failed to get Articlesb:`, response.statusText);
+    return null; 
+  }
+} catch (error) {
+  console.error("Error:", error);
+  return null;
+}
+}
+
+
+
+
 export async function deleteArticle(
     id:string
 ) {

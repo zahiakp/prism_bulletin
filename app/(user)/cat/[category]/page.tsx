@@ -4,17 +4,17 @@ import React from 'react'
 import Content from './Content';
 import { NEWS } from '@/components/data/data';
 import GuestLayout from '@/components/layouts/GuestLayout';
-import { getArticle } from '@/app/(admin)/admin/articles/Add/func';
+import { getArticle, getArticlebyCategory } from '@/app/(admin)/admin/articles/Add/func';
 
 async function page({ params }: { params: any }) {
     const cat = params.category;
-    const art = await getArticle()
-    const data = art?.data?.filter((item:any)=>cat!="All" ? item.category==cat : item);
+    const art =cat!=="All" ? await getArticlebyCategory(cat) : await getArticle();
+    
     
   return (
     <GuestLayout cat={cat}>
       <SubHeader active={cat}/>
-      <Content data={data}/>
+      <Content data={art?.data}/>
     </GuestLayout>
   )
 }

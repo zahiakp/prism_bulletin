@@ -12,7 +12,7 @@ function Content({ data }: { data: any }) {
   return (
     <main className="flex w-full justify-center my-14">
       <div className="w-[90%] max-w-[1200px] grid grid-cols-1 md:grid-cols-3 gap-10">
-       {data.length> 0 ? data.map((item:any,index:number)=>(
+       {data?.length> 0 ? data.map((item:any,index:number)=>(
         <Link key={index} href={`/${item.url}`}>
         {/* <section className="flex flex-col mb-10">
           <div className="h-48 w-full overflow-hidden rounded-xl  col-span-3 relative">

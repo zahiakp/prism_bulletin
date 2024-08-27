@@ -13,7 +13,7 @@ function NewsCard({ data }: { data: any }) {
             src={
               data.image != ""
                 ? `${ROOT_URL}uploads/news/${data.image}`
-                : "prism thumb.jpg"
+                : "/prism thumb.jpg"
             }
             className="h-full w-full object-cover"
           />

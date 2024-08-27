@@ -13,27 +13,16 @@ import NewsCard from "../common/NewsCard";
 
 
 
-function Education({data}:{data:any}) {const groupedData = data?.reduce((acc: any, item: any) => {
-  const category = acc.find((category: any) => category.category === item.category);
-  
-  if (category) {
-    category.items.push(item);
-  } else {
-    acc.push({ category: item.category, items: [item] });
-  }
-  
-  return acc;
-}, []);
+function Education({data}:{data:any}) {
 // console.log(groupedData);
   return (
     <>
-    {groupedData?.map((item: any, index: number) => (
-      item.items.length > 3 && 
+    {data?.map((item: any, index: number) => (
     <main key={index} className={`flex justify-center py-5 my-3 ${index % 2 == 0 ? "bg-zinc-100":"bg-white"} `}> 
       <section className="w-[90%] max-w-[1200px] flex flex-col pt-7">
         <div className="flex items-center justify-between">
-            <p className="text-3xl font-bold">{item.category}</p>
-            <Link href={`/category/${item.category}`} className={`flex items-center gap-3 hover:gap-4 duration-300 rounded-3xl p-2 px-5 ${index % 2 == 0 ?"bg-white":"bg-zinc-100"}  text-sm`}> View All <HiOutlineArrowLongRight className="text-xl"/>
+            <p className="text-3xl font-bold">{item.name}</p>
+            <Link href={`/category/${item.name}`} className={`flex items-center gap-3 hover:gap-4 duration-300 rounded-3xl p-2 px-5 ${index % 2 == 0 ?"bg-white":"bg-zinc-100"}  text-sm`}> View All <HiOutlineArrowLongRight className="text-xl"/>
             </Link>
         </div>
         <div className="flex flex-col md:flex-row mt-4">
@@ -57,7 +46,7 @@ function Education({data}:{data:any}) {const groupedData = data?.reduce((acc: an
             }}
             className="w-full"
           >
-            {item?.items?.map((item: any, index: number) => (
+            {item?.data.map((item: any, index: number) => (
               <div key={index} >
                 <SwiperSlide key={index}>
                   {/* <section className="flex flex-col mb-10">
