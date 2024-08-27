@@ -64,7 +64,7 @@ const UploadForm = ({ data }: { data: any }) => {
       status: "active",
     },
     validationSchema: Yup.object({
-      file: Yup.mixed().required("Image is required"),
+      // file: Yup.mixed().required("Image is required"),
       title: Yup.string().required("Title is required"),
       body: Yup.string().required("Content is required"),
       type: Yup.string().required("Category is required"),

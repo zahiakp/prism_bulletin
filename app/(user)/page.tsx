@@ -7,19 +7,21 @@ import SubSlider from "@/components/Home/SubSlider";
 import AdminLayout from "@/components/layouts/AdminLayout";
 import GuestLayout from "@/components/layouts/GuestLayout";
 import Image from "next/image";
-import { getArticle } from "../(admin)/admin/articles/Add/func";
+import { getArticle, getArticlebyCount, getArticlesasNewArray } from "../(admin)/admin/articles/Add/func";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const news = await getArticle()
+  const cnews = await getArticlebyCount("5")
+  const CatArray = await getArticlesasNewArray()
   // console.log(news);
   
   return (
     <GuestLayout>
       <SubHeader/>
-      <MainSlider data={news?.data}/>
-      <SubSlider data={news?.data}/>
-    <Education data={news?.data}/>
+      <MainSlider data={cnews?.data}/>
+      <SubSlider data={cnews?.data}/>
+    <Education data={CatArray?.data}/>
    </GuestLayout>
   );
 }

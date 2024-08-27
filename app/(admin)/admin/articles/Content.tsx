@@ -136,9 +136,9 @@ function Content({ article }: { article: any }) {
                   <p className="col-span-2 line-clamp-1 text-center font-semibold text-blue-600">{item?.category}</p>
                   <p className="col-span-2 text-center">{getRelativeTime(item?.date)}</p>
                   <div className="col-span-2 flex items-center gap-2 justify-center">
-                    <div data-tip="View Image" onClick={()=>setImageView(item?.image)} className="tooltip h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center cursor-pointer">
+                   {item?.image!=="" && <div data-tip="View Image" onClick={()=>setImageView(item?.image)} className="tooltip h-10 w-10 rounded-lg bg-zinc-100 flex items-center justify-center cursor-pointer">
                       <TbPhotoUp  className="text-xl text-zinc-600 " />
-                    </div>
+                    </div>}
                     <a data-tip="Edit"
                       href={`/admin/articles/Edit/${encodeId(item?.id)}`}
                       className="tooltip h-10 w-10 rounded-lg bg-blue-50 flex items-center justify-center cursor-pointer"

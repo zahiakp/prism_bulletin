@@ -43,7 +43,7 @@ const UploadForm = () => {
       status: "active",
     },
     validationSchema: Yup.object({
-      file: Yup.mixed().required("Image is required"),
+      // file: Yup.mixed().required("Image is required"),
       title: Yup.string().required("Title is required"),
       body: Yup.string().required("Content is required"),
       type: Yup.string().required("Category is required"),
@@ -52,13 +52,32 @@ const UploadForm = () => {
     onSubmit: async (values) => {
       try {
         setLoading(true);
-        const imageUploadResult = await uploadImage(values.file);
-        if (imageUploadResult?.success) {
-          const image = imageUploadResult.filename;
+        if(values.file){
+          const imageUploadResult = await uploadImage(values.file);
+          if (imageUploadResult?.success) {
+            const image = imageUploadResult.filename;
+            const newsUploadResult = await uploadArticle(
+              values.title,
+              values.body,
+              image,
+              values.type,
+              createUrlLink(values.title),
+              ArraytoString(values.tags),
+              values.status
+            );
+            if (newsUploadResult) {
+              toast.success("News uploaded successfully");
+              router.replace("/admin/articles/");
+              router.refresh();
+            } else {
+              toast.error("Something went wrong!");
+            }
+          }
+        }else{
           const newsUploadResult = await uploadArticle(
             values.title,
             values.body,
-            image,
+            values.image,
             values.type,
             createUrlLink(values.title),
             ArraytoString(values.tags),
@@ -72,6 +91,7 @@ const UploadForm = () => {
             toast.error("Something went wrong!");
           }
         }
+        
       } catch (error) {
         console.error("Error:", error);
         toast.error("Something went wrong!");

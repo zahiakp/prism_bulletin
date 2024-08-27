@@ -295,13 +295,13 @@ function Report({ inv}: { inv: any;}) {
         <div className="flex flex-col justify-center rounded-2xl overflow-hidden">
           <div className="bg-zinc-200 py-2 px-5">Total Views</div>
           <div className="bg-white text-[50px] px-10">
-            ₹{salesMetrics.views}
+            {salesMetrics.views}
           </div>
         </div>
         <div className="flex flex-col justify-center rounded-2xl overflow-hidden">
           <div className="bg-zinc-200 py-2 px-5">Total Shares</div>
           <div className="bg-white text-[50px] px-10">
-            ₹{salesMetrics.shares}
+            {salesMetrics.shares}
           </div>
         </div>
       </div>

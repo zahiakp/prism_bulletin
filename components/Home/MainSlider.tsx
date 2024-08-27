@@ -29,7 +29,7 @@ function MainSlider({data}:{data:any}) {
             }}
             className="w-full"
           >
-            {data?.slice(5)?.map((item: any, index: number) => (
+            {data?.map((item: any, index: number) => (
 
               <div key={index} className="cursor-pointer">
                 <SwiperSlide>

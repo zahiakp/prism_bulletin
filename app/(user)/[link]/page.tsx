@@ -72,18 +72,18 @@ export async function generateMetadata({ params }: { params: any }) {
   const data = await getArticlebyId(decodeId(id));
   return {
     title: `${data?.data?.title} | Prism Bulletin`,
-    description: data?.data?.body,
+    description: "Prism Bulletin is a news portal launched in 2024, under Prism Foundation.",
     metadataBase: new URL(`https://bulletin.prismonline.org/${params.link}`),
     openGraph: {
       url: `https://bulletin.prismonline.org/${params.link}`,
       title: data?.data?.title,
-      description: data?.data?.body,
+      description: 'Prism Bulletin is a news portal launched in 2024, under Prism Foundation.',
       images: [data.image!=""? `${ROOT_URL}uploads/news/${data.image}`:"prism thumb.jpg"],
     },
     twitter: {
       card: "summary_large_image",
       title: data?.data?.title,
-      description: data?.data?.body,
+      description: "Prism Bulletin is a news portal launched in 2024, under Prism Foundation.",
       image: data.image!=""? `${ROOT_URL}uploads/news/${data.image}`:"prism thumb.jpg",
     },
   };
