@@ -4,6 +4,8 @@ import Content from './Content'
 import AdminLayout from '@/components/layouts/AdminLayout'
 import { getArticle } from './Add/func'
 import { NEWS } from '@/components/data/data'
+export const dynamic = "force-dynamic";
+
 
 async function page() {
   const Articles = await getArticle()
