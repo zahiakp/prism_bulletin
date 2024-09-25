@@ -6,14 +6,14 @@ import React from "react";
 
 
 // export const metadata = ({ data }: { data: any }): Metadata => ({
-//   title: data[0].title,
-//   description: data[0].dis,
-//   keywords: data[0].tags || "",
+//   title: data.title,
+//   description: data.dis,
+//   keywords: data.tags || "",
 //   metadataBase: new URL('https://bulletin.prismonline.org/'),
 //   openGraph: {
-//     url: `https://bulletin.prismonline.org/${data[0].url}`,
-//     description: data[0].title,
-//     images: `${ROOT_URL}/uploads/news/${data[0].image}`
+//     url: `https://bulletin.prismonline.org/${data.url}`,
+//     description: data.title,
+//     images: `${ROOT_URL}uploads/news/${data.image}`
 //   },
 // });
 
