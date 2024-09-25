@@ -5,7 +5,7 @@ import { getArticle } from './articles/Add/func';
 export const dynamic = "force-dynamic";
 
 async function page() {
-  const art = await getArticle()
+  const art = await getArticle("")
   return (
     <AdminLayout active={"Dashbord"}>
       <div className="flex items-center justify-center h-full">
