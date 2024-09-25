@@ -3,19 +3,10 @@
 import React from 'react';
 import {FacebookShareButton,FacebookIcon,TwitterShareButton,TwitterIcon,LinkedinShareButton,LinkedinIcon,PinterestShareButton,PinterestIcon,EmailShareButton,EmailIcon, WhatsappShareButton, WhatsappIcon,} from 'react-share';
 import { shareToWhatsApp } from './SharetoWhatsapp';
-import { encodeId } from '@/components/common/Decode';
+import { FaWhatsapp } from 'react-icons/fa6';
 
 const SocialShare = ({ data }:{data:any}) => {
-  const bodyText = data.body.replace(/<[^>]+>/g, '').slice(0, 500);
-  
-  // Construct the post URL
-  const postUrl = `https://bulletin.prismonline.org/${data.url}_${encodeId(data.id)}`;
-
-  // WhatsApp sharing URL with properly constructed body and post URL
-  const message = `*${data.title}*\n\n${bodyText}\n\nRead more:\n${postUrl}`;
-
-  // Correctly encode the message for WhatsApp URL
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    // const data = data1[0];
   return (
     <div className="social-share flex gap-2">
       <FacebookShareButton url={data.url} title={data.title} hashtag="#yourhashtag">
@@ -37,12 +28,12 @@ const SocialShare = ({ data }:{data:any}) => {
       <EmailShareButton url={data.url} subject={data.title} body={data.body}>
         <EmailIcon size={40} round />
       </EmailShareButton>
-      <WhatsappShareButton url={whatsappUrl} >
+      {/* <WhatsappShareButton url={data.url} >
         <WhatsappIcon size={40} round></WhatsappIcon>
-      </WhatsappShareButton>
+      </WhatsappShareButton> */}
 
 
-      {/* <button onClick={() => shareToWhatsApp(data)}>Share on WhatsApp</button> */}
+      <button className='h-10 w-10 rounded-full text-2xl flex items-center justify-center bg-[#25D366] text-white' onClick={() => shareToWhatsApp(data)}><FaWhatsapp /></button>
     </div>
   );
 };
