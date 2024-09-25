@@ -8,7 +8,7 @@ const Spinner = () => {
         }}
         >
            <span className="loading loading-spinner text-error"></span>
-            <span className="text-xs text-gray-500 mt-3 italic">Hang On...</span>
+            <span className="text-xs text-gray-500 mt-3 italic">Loading...</span>
         </div>
     );
 }

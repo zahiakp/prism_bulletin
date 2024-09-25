@@ -5,12 +5,12 @@ import { getArticle } from "./Add/func";
 export const dynamic = "force-dynamic";
 
 async function page() {
-  const Articles = await getArticle();
+  // const Articles = await getArticle();
 
   return (
     <>
       <AdminLayout active={"Articles"}>
-      <Content article={Articles?.data}/>
+      <Content/>
 {/* <div className="flex flex-col gap-2">
       <div className="flex gap-2 flex-col md:flex-row">
         <div className="h-60 flex gap-2 w-full">
@@ -54,7 +54,7 @@ async function page() {
           <div className="bg-blue-200 w-2/6"></div>
         </div>
       </div></div> */}
-      // </AdminLayout>
+     </AdminLayout>
     </>
   );
 }
