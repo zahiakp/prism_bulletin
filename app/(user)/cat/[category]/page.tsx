@@ -8,13 +8,12 @@ import { getArticle, getArticlebyCategory } from '@/app/(admin)/admin/articles/A
 
 async function page({ params }: { params: any }) {
     const cat = params.category;
-    const art =cat!=="All" ? await getArticlebyCategory(cat) : await getArticle();
     
     
   return (
     <GuestLayout cat={cat}>
       <SubHeader active={cat}/>
-      <Content data={art?.data}/>
+      <Content cat={cat}/>
     </GuestLayout>
   )
 }

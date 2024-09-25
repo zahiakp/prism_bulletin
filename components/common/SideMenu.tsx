@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { BiSolidMessageSquareEdit } from "react-icons/bi";
 import { GrUser } from "react-icons/gr";
@@ -8,8 +9,11 @@ import { TbLayoutDashboardFilled } from "react-icons/tb";
 import classNames from "classnames";
 import Image from "next/image";
 import Logout from "../../app/(admin)/login/logout";
+import { usePathname } from "next/navigation";
 
 function SideMenu(active:any) {
+  const pathname = usePathname()
+  
   const NAV_ITEMS: any = [
     {
       link: "/admin",
@@ -46,9 +50,7 @@ function SideMenu(active:any) {
       {/* <img src="prism logo light dd.png" alt="" className="h-40 duration-300 group-hover:scale-105"/> */}
       </div>
     <div className="flex gap-2 flex-col w-full">{NAV_ITEMS.map((item:any,index:number)=>(
-    <a href={item.link} key={index} className={classNames({"flex items-center gap-3 rounded-xl p-3 px-5": true,
-                "bg-zinc-800": active === item.label,
-                "hover:bg-zinc-800":true })}>
+    <a href={item.link} key={index} className={`flex items-center gap-3 rounded-xl p-3 px-5 ${pathname == item.link && "bg-zinc-800"} hover:bg-zinc-800`}>
         <p className="text-xl">{item.icon}</p>
     <p  className="text-base text-white font-medium">{item.label}</p></a>
     ))}</div>

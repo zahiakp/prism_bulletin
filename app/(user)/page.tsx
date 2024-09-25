@@ -11,7 +11,6 @@ import { getArticle, getArticlebyCount, getArticlesasNewArray } from "../(admin)
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const news = await getArticle()
   const cnews = await getArticlebyCount("5")
   const CatArray = await getArticlesasNewArray()
   // console.log(news);

@@ -107,9 +107,9 @@ export async function updateArticle(
 
 
 export async function getArticle(
-    
+    quary:any
 ) {
-  const URL: string = `${ROOT_URL}news/actions.php?api=${API_KEY}`;
+  const URL: string = `${ROOT_URL}news/actions.php?api=${API_KEY}&${quary}`;
   
   try {
     const response = await axios.get(URL);
