@@ -3,15 +3,18 @@
 import React from 'react';
 import {FacebookShareButton,FacebookIcon,TwitterShareButton,TwitterIcon,LinkedinShareButton,LinkedinIcon,PinterestShareButton,PinterestIcon,EmailShareButton,EmailIcon, WhatsappShareButton, WhatsappIcon,} from 'react-share';
 import { shareToWhatsApp } from './SharetoWhatsapp';
-import { FaWhatsapp } from 'react-icons/fa6';
+import { FaFacebookF, FaWhatsapp } from 'react-icons/fa6';
+import { shareToFacebook } from './SharetoFacebook';
 
 const SocialShare = ({ data }:{data:any}) => {
     // const data = data1[0];
   return (
     <div className="social-share flex gap-2">
-      <FacebookShareButton url={data.url} title={data.title} hashtag="#yourhashtag">
+      {/* <FacebookShareButton url={data.url} title={data.title} hashtag="#yourhashtag">
         <FacebookIcon size={40} round />
-      </FacebookShareButton>
+      </FacebookShareButton> */}
+            <button className='h-10 w-10 rounded-full text-[20px] flex items-center justify-center bg-[#4267B2] text-white' onClick={() => shareToFacebook(data)}><FaFacebookF  /></button>
+
 
       <TwitterShareButton url={data.url} title={data.title} via="yourTwitterHandle">
         <TwitterIcon size={40} round />
