@@ -79,13 +79,13 @@ export async function generateMetadata({ params }: { params: any }) {
       url: `https://bulletin.prismonline.org/${params.link}`,
       title: data?.data?.title,
       description: 'Prism Bulletin is a news portal launched in 2024, under Prism Foundation.',
-      images: [data.image!=""? `${ROOT_URL}uploads/news/${data.image}`:"prism thumb.jpg"],
+      images: [data?.data?.image!=""? `${ROOT_URL}uploads/news/${data?.data?.image}`:"prism thumb.jpg"],
     },
     twitter: {
       card: "summary_large_image",
       title: data?.data?.title,
       description: "Prism Bulletin is a news portal launched in 2024, under Prism Foundation.",
-      image: data.image!=""? `${ROOT_URL}uploads/news/${data.image}`:"prism thumb.jpg",
+      image: data?.data?.image!=""? `${ROOT_URL}uploads/news/${data?.data?.image}`:"prism thumb.jpg",
     },
   };
 }
