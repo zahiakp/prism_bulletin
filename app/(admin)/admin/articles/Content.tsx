@@ -62,6 +62,8 @@ function Content({ article }: { article: any }) {
   const handleCatFilterChange = (event: any) => {
     setCatFilter(event.target.value);
   };
+  console.log(article);
+  
   return (
     <>
     <main className="w-full flex justify-between">

@@ -26,6 +26,7 @@ async function page({ params }: { params: any }) {
       <main className="flex w-full justify-center my-14">
         <div className="w-[90%] max-w-[1200px] grid grid-cols-1 md:grid-cols-3  gap-10">
           <div className="col-span-2">
+          
             <Content data={data?.data} />
           </div>
           <div className="md:col-span-1 flex flex-col gap-5">
