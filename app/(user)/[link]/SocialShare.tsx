@@ -16,19 +16,19 @@ const SocialShare = ({ data }:{data:any}) => {
             <button className='h-10 w-10 rounded-full text-[20px] flex items-center justify-center bg-[#4267B2] text-white' onClick={() => shareToFacebook(data)}><FaFacebookF  /></button>
 
 
-      <TwitterShareButton url={data.url} title={data.title} via="yourTwitterHandle">
+      <TwitterShareButton url={data?.url} title={data?.title} via="yourTwitterHandle">
         <TwitterIcon size={40} round />
       </TwitterShareButton>
 
-      <LinkedinShareButton url={data.url} title={data.title} summary={data.body}>
+      <LinkedinShareButton url={data?.url} title={data?.title} summary={data?.body}>
         <LinkedinIcon size={40} round />
       </LinkedinShareButton>
 
-      <PinterestShareButton url={data.url} media={data.image} description={data.body}>
+      <PinterestShareButton url={data?.url} media={data?.image} description={data?.body}>
         <PinterestIcon size={40} round />
       </PinterestShareButton>
 
-      <EmailShareButton url={data.url} subject={data.title} body={data.body}>
+      <EmailShareButton url={data?.url} subject={data?.title} body={data?.body}>
         <EmailIcon size={40} round />
       </EmailShareButton>
       {/* <WhatsappShareButton url={data.url} >

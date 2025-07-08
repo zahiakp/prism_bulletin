@@ -9,7 +9,7 @@ interface PostData {
 
 export const shareToFacebook = (post: PostData) => {
     // Construct the post URL (with ID encoded)
-    const postUrl = `https://bulletin.prismonline.org/${post.url}_${encodeId(post.id)}`;
+    const postUrl = `https://bulletin.prismonline.org/${post?.url}_${encodeId(post?.id)}`;
 
     // Facebook share URL
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`;
