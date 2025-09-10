@@ -1,9 +1,4 @@
-import React from "react";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-
-import Header from "@/components/Home/Header";
-import Content from "./Content";
 import SocialShare from "./SocialShare";
 import GuestLayout from "@/components/layouts/GuestLayout";
 
@@ -11,10 +6,20 @@ import { getArticlebyId } from "@/app/(admin)/admin/articles/Add/func";
 import { getLastWord } from "@/components/common/IdSepparator";
 import { decodeId } from "@/components/common/Decode";
 import { ROOT_URL } from "@/components/data/func";
+import RelatedPosts from "./RelatedPosts";
+import RelatedPostsWrapper from "./RelatedPosts";
+import { Suspense } from "react";
+import ArticleSkeleton from "./Skeleton";
+import dynamic from "next/dynamic";
 
 type PageProps = {
   params: { link: string };
 };
+
+const Content = dynamic(() => import("./Content"), {
+  ssr: false,
+  loading: () => <ArticleSkeleton />,
+});
 
 export default async function Page({ params }: PageProps) {
   try {
@@ -32,34 +37,19 @@ export default async function Page({ params }: PageProps) {
     return (
       <GuestLayout>
         <main className="flex w-full justify-center my-14">
-          <div className="w-[90%] max-w-[1200px] grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="w-[90%] max-w-[1200px] grid grid-cols-1 md:grid-cols-3 gap-14">
             <div className="col-span-2">
+              <Suspense fallback={<ArticleSkeleton/>}>
               <Content data={article} />
+            </Suspense>
             </div>
 
-            <div className="md:col-span-1 flex flex-col gap-5">
-              {/* Share Section */}
-              <div className="bg-zinc-100 border border-zinc-500 flex flex-col gap-4 rounded-xl p-7">
-                <p className="text-lg font-semibold">Share Post</p>
-                <SocialShare data={article} />
-              </div>
-
-              {/* Article Preview Body */}
-              {article?.body && (
-                <article
-                  className="p-10 rounded-xl bg-blue-100"
-                  dangerouslySetInnerHTML={{ __html: article.body }}
-                />
-              )}
-
-              {/* Recent Posts Placeholder */}
-              <div className="flex flex-col">
-                <p className="text-xl font-bold">Recents</p>
-                <div className="flex flex-col gap-3 my-3">
-                  {/* Implement recent posts logic here */}
-                </div>
-              </div>
-            </div>
+            <div className="col-span-1 w-full flex flex-col gap-5">
+            <p className="text-lg font-bold">Share Post</p>
+            <SocialShare data={response?.data}/>
+            <p className="text-lg font-bold">Recent Post</p>
+            <RelatedPostsWrapper/>
+          </div>
           </div>
         </main>
       </GuestLayout>

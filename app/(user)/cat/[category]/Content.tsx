@@ -71,7 +71,7 @@ function Content({ cat }: { cat: any }) {
             />
           </div>
         )}</> ) : (
-          <div className="mt-10 w-[90%] max-w-[1200px]">
+          <div className="mt-10 w-[90%] max-w-[1200px] mx-auto">
             <Empty />
           </div> 
         )}

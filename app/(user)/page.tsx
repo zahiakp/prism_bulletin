@@ -1,15 +1,23 @@
-import Education from "@/components/Home/Education";
-import Header from "@/components/Home/Header";
-import Health from "@/components/Home/Health";
-import MainSlider from "@/components/Home/MainSlider";
 import SubHeader from "@/components/Home/SubHeader";
-import SubSlider from "@/components/Home/SubSlider";
-import AdminLayout from "@/components/layouts/AdminLayout";
 import GuestLayout from "@/components/layouts/GuestLayout";
-import Image from "next/image";
-import { getArticle, getArticlebyCount, getArticlesasNewArray } from "../(admin)/admin/articles/Add/func";
-export const dynamic = "force-dynamic";
-
+import { getArticlebyCount, getArticlesasNewArray } from "../(admin)/admin/articles/Add/func";
+import { Suspense } from "react";
+import NewsSkeleton from "@/components/Home/(skeleton)/MainSkelten";
+import dynamic from "next/dynamic";
+import SubSliderSkeleton from "@/components/Home/(skeleton)/SubSlider";
+import NewsCardSkeleton from "@/components/Home/(skeleton)/CatSkeleton";
+const MainSlider = dynamic(() => import("@/components/Home/MainSlider"), {
+  ssr: false,
+  loading: () => <NewsSkeleton />,
+});
+const SubSlider = dynamic(() => import("@/components/Home/SubSlider"), {
+  ssr: false,
+  loading: () => <SubSliderSkeleton />,
+});
+const Education = dynamic(() => import("@/components/Home/Education"), {
+  ssr: false,
+  loading: () => <SubSliderSkeleton />,
+});
 export default async function Home() {
   const cnews = await getArticlebyCount("5")
   const CatArray = await getArticlesasNewArray()
@@ -18,9 +26,15 @@ export default async function Home() {
   return (
     <GuestLayout>
       <SubHeader/>
+      <Suspense fallback={<NewsSkeleton/>}>
       <MainSlider data={cnews?.data}/>
+      </Suspense>
+      <Suspense fallback={<SubSliderSkeleton/>}>
       <SubSlider data={cnews?.data}/>
-    <Education data={CatArray?.data}/>
+      </Suspense>
+    <Suspense fallback={<SubSliderSkeleton />}>
+  <Education data={CatArray?.data} />
+</Suspense>
    </GuestLayout>
   );
 }

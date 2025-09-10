@@ -10,6 +10,8 @@ import Link from "next/link";
 import { ROOT_URL } from "../data/func";
 import { getRelativeTime } from "../common/DateConvert";
 import { encodeId } from "../common/Decode";
+import Image from "next/image";
+import SafeImage from "../common/SafeImage";
 
 
 function MainSlider({data}:{data:any}) {
@@ -36,7 +38,7 @@ function MainSlider({data}:{data:any}) {
                   <Link href={`/${item.url+'_'+encodeId(item.id)}`}>
                     <section className="grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-10 md:h-[450px] ">
                       <div className="h-[200px] md:h-full w-full overflow-hidden rounded-xl relative col-span-3 ">
-                        <img
+                        <SafeImage alt={item.title} height={200} width={400}
                           src={item.image!=""? `${ROOT_URL}uploads/news/${item.image}`:"prism thumb.jpg"}
                           className="h-full w-full object-cover"
                         />

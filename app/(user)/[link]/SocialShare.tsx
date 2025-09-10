@@ -1,42 +1,48 @@
 // components/SocialShare.js
 "use client"
 import React from 'react';
-import {FacebookShareButton,FacebookIcon,TwitterShareButton,TwitterIcon,LinkedinShareButton,LinkedinIcon,PinterestShareButton,PinterestIcon,EmailShareButton,EmailIcon, WhatsappShareButton, WhatsappIcon,} from 'react-share';
+import {TwitterShareButton,TwitterIcon,LinkedinShareButton,LinkedinIcon,PinterestShareButton,PinterestIcon,EmailShareButton,EmailIcon, WhatsappShareButton, WhatsappIcon,} from 'react-share';
 import { shareToWhatsApp } from './SharetoWhatsapp';
-import { FaFacebookF, FaWhatsapp } from 'react-icons/fa6';
+import { FaFacebookF, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import { shareToFacebook } from './SharetoFacebook';
+import { BsTwitter } from 'react-icons/bs';
+import { FaLinkedinIn, FaPinterestP } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import { IoLogoWhatsapp } from 'react-icons/io5';
+import { RiWhatsappFill } from 'react-icons/ri';
 
 const SocialShare = ({ data }:{data:any}) => {
-    // const data = data1[0];
   return (
     <div className="social-share flex gap-2">
-      {/* <FacebookShareButton url={data.url} title={data.title} hashtag="#yourhashtag">
-        <FacebookIcon size={40} round />
-      </FacebookShareButton> */}
-            <button className='h-10 w-10 rounded-full text-[20px] flex items-center justify-center bg-[#4267B2] text-white' onClick={() => shareToFacebook(data)}><FaFacebookF  /></button>
+            <button className='p-3 text-lg border border-gray-300 rounded-2xl hover:text-blue-500 hover:border-blue-500 font-medium hover:bg-gray-50 transition-all duration-300' onClick={() => shareToFacebook(data)}><FaFacebookF  /></button>
 
 
-      <TwitterShareButton url={data?.url} title={data?.title} via="yourTwitterHandle">
-        <TwitterIcon size={40} round />
+      <TwitterShareButton url={data.url} title={data.title} via="yourTwitterHandle">
+        <p className={`p-3 text-lg border border-gray-300 rounded-2xl hover:text-blue-500 hover:border-blue-500 font-medium hover:bg-gray-50 transition-all duration-300`}>
+              <FaXTwitter />
+            </p>
       </TwitterShareButton>
 
-      <LinkedinShareButton url={data?.url} title={data?.title} summary={data?.body}>
-        <LinkedinIcon size={40} round />
+      <LinkedinShareButton url={data.url} title={data.title} summary={data.body}>
+        <p className={`p-3 text-lg border border-gray-300 rounded-2xl hover:text-blue-500 hover:border-blue-500 font-medium hover:bg-gray-50 transition-all duration-300`}>
+              <FaLinkedinIn />
+            </p>
       </LinkedinShareButton>
 
-      <PinterestShareButton url={data?.url} media={data?.image} description={data?.body}>
-        <PinterestIcon size={40} round />
+      <PinterestShareButton url={data.url} media={data.image} description={data.body}>
+        <p className={`p-3 text-lg border border-gray-300 rounded-2xl hover:text-red-500 hover:border-red-500 font-medium hover:bg-gray-50 transition-all duration-300`}>
+              <FaPinterestP />
+            </p>
       </PinterestShareButton>
 
-      <EmailShareButton url={data?.url} subject={data?.title} body={data?.body}>
-        <EmailIcon size={40} round />
+      <EmailShareButton url={data.url} subject={data.title} body={data.body}>
+        <p className={`p-3 text-lg border border-gray-300 rounded-2xl hover:text-blue-500 hover:border-blue-500 font-medium hover:bg-gray-50 transition-all duration-300`}>
+              <MdEmail />
+            </p>
       </EmailShareButton>
-      {/* <WhatsappShareButton url={data.url} >
-        <WhatsappIcon size={40} round></WhatsappIcon>
-      </WhatsappShareButton> */}
 
 
-      <button className='h-10 w-10 rounded-full text-2xl flex items-center justify-center bg-[#25D366] text-white' onClick={() => shareToWhatsApp(data)}><FaWhatsapp /></button>
+      <button className='p-3 text-lg border border-gray-300 rounded-2xl hover:text-green-500 hover:border-green-500 font-medium hover:bg-gray-50 transition-all duration-300' onClick={() => shareToWhatsApp(data)}><RiWhatsappFill /></button>
     </div>
   );
 };
