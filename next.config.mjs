@@ -6,6 +6,9 @@ const nextConfig = {
     }
     return config;
   },
+  images: {
+    domains: ["projects.abaqas.in","localhost"], 
+  },
 };
 
 export default nextConfig;

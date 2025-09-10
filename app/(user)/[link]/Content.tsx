@@ -1,21 +1,10 @@
 import { getRelativeTime } from "@/components/common/DateConvert";
 import { StringtoArray } from "@/components/common/decodeTags";
+import SafeImage from "@/components/common/SafeImage";
 import { ROOT_URL } from "@/components/data/func";
-import { Metadata } from "next";
+import Image from "next/image";
 import React from "react";
 
-
-// export const metadata = ({ data }: { data: any }): Metadata => ({
-//   title: data.title,
-//   description: data.dis,
-//   keywords: data.tags || "",
-//   metadataBase: new URL('https://bulletin.prismonline.org/'),
-//   openGraph: {
-//     url: `https://bulletin.prismonline.org/${data.url}`,
-//     description: data.title,
-//     images: `${ROOT_URL}uploads/news/${data.image}`
-//   },
-// });
 
 
 function Content({ data }: { data: any }) {
@@ -26,9 +15,10 @@ function Content({ data }: { data: any }) {
   return (
     <main className="flex flex-col ">
       <h6 className="text-5xl font-bold leading-[60px]">{data?.title}</h6>
-      <span className="text-blue-600">{getRelativeTime(data?.date)}</span>
+      <div className="flex gap-3 mt-3"><span className="text-blue-700 bg-blue-50 p-2  px-5 rounded-2xl w-fit">{getRelativeTime(data?.date)}</span>
+      <span className="text-zinc-700 bg-zinc-50 p-2 px-5 rounded-2xl w-fit">{getReadingTime(data?.body)} min read</span></div>
       {data?.image!="" && <div className="w-full h-[450px] overflow-hidden rounded-2xl my-7">
-        <img
+        <SafeImage height={400} width={500}
           src={`${ROOT_URL}uploads/news/${data?.image}`}
           alt=""
           className="w-full h-full object-cover"
@@ -45,3 +35,12 @@ function Content({ data }: { data: any }) {
 }
 
 export default Content;
+
+
+export function getReadingTime(content: string, wordsPerMinute: number = 200): number {
+  // Remove HTML tags if content includes markup
+  const plainText = content.replace(/<[^>]+>/g, '');
+  const wordCount = plainText.trim().split(/\s+/).length;
+  const time = Math.ceil(wordCount / wordsPerMinute);
+  return time; // time in minutes
+}

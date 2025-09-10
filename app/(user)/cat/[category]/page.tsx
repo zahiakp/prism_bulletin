@@ -1,11 +1,12 @@
-import Header from '@/components/Home/Header'
 import SubHeader from '@/components/Home/SubHeader';
-import React from 'react'
-import Content from './Content';
-import { NEWS } from '@/components/data/data';
+import React, { Suspense } from 'react'
 import GuestLayout from '@/components/layouts/GuestLayout';
-import { getArticle, getArticlebyCategory } from '@/app/(admin)/admin/articles/Add/func';
-
+import CatPage from '@/components/Home/(skeleton)/CatPage';
+import dynamic from 'next/dynamic';
+const Content = dynamic(() => import("./Content"), {
+  ssr: false,
+  loading: () => <CatPage />,
+});
 async function page({ params }: { params: any }) {
     const cat = params.category;
     
@@ -13,7 +14,9 @@ async function page({ params }: { params: any }) {
   return (
     <GuestLayout cat={cat}>
       <SubHeader active={cat}/>
+      <Suspense fallback={<CatPage/>}>
       <Content cat={cat}/>
+      </Suspense>
     </GuestLayout>
   )
 }

@@ -40,7 +40,7 @@ function Footer({active}:{active?:any}) {
       </footer>
       <section className="flex justify-center w-full bg-zinc-100">
         <div className="w-[90%] max-w-[1200px] flex items-center justify-center md:justify-between duration-300 gap-4 py-7">
-          <p>© 2024 Prism Bulletin</p>
+          <p>© {new Date().getFullYear()} Prism Bulletin</p>
           <a href="https://abaqas.in" className="hidden md:block">abaqas.in</a>
         </div>
       </section>
