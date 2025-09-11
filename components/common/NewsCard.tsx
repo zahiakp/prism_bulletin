@@ -10,7 +10,7 @@ function NewsCard({ data }: { data: any }) {
   return (
     <Link href={`/${data.url+"_"+encodeId(data.id)}`}>
       <div className="flex flex-col mb-10">
-        <div className="h-48 w-full overflow-hidden rounded-xl  col-span-3 relative">
+        <div className="h-48 w-full overflow-hidden rounded-xl bg-gray-100 col-span-3 relative">
           <SafeImage alt={data.title} height={200} width={400}
             src={
               data.image != ""

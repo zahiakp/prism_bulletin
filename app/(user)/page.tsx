@@ -7,15 +7,15 @@ import dynamic from "next/dynamic";
 import SubSliderSkeleton from "@/components/Home/(skeleton)/SubSlider";
 import NewsCardSkeleton from "@/components/Home/(skeleton)/CatSkeleton";
 const MainSlider = dynamic(() => import("@/components/Home/MainSlider"), {
-  ssr: false,
+  // ssr: false,
   loading: () => <NewsSkeleton />,
 });
 const SubSlider = dynamic(() => import("@/components/Home/SubSlider"), {
-  ssr: false,
+  // ssr: false,
   loading: () => <SubSliderSkeleton />,
 });
 const Education = dynamic(() => import("@/components/Home/Education"), {
-  ssr: false,
+  // ssr: false,
   loading: () => <SubSliderSkeleton />,
 });
 export default async function Home() {

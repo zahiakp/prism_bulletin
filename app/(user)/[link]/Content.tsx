@@ -17,7 +17,7 @@ function Content({ data }: { data: any }) {
       <h6 className="text-5xl font-bold leading-[60px]">{data?.title}</h6>
       <div className="flex gap-3 mt-3"><span className="text-blue-700 bg-blue-50 p-2  px-5 rounded-2xl w-fit">{getRelativeTime(data?.date)}</span>
       <span className="text-zinc-700 bg-zinc-50 p-2 px-5 rounded-2xl w-fit">{getReadingTime(data?.body)} min read</span></div>
-      {data?.image!="" && <div className="w-full h-[450px] overflow-hidden rounded-2xl my-7">
+      {data?.image!="" && <div className="w-full h-[450px] bg-gray-100 overflow-hidden rounded-2xl my-7">
         <SafeImage height={400} width={500}
           src={`${ROOT_URL}uploads/news/${data?.image}`}
           alt=""
