@@ -26,15 +26,15 @@ export default async function Home() {
   return (
     <GuestLayout>
       <SubHeader/>
-      <Suspense fallback={<NewsSkeleton/>}>
+      {/* <Suspense fallback={<NewsSkeleton/>}> */}
       <MainSlider data={cnews?.data}/>
-      </Suspense>
-      <Suspense fallback={<SubSliderSkeleton/>}>
+      {/* </Suspense> */}
+      {/* <Suspense fallback={<SubSliderSkeleton/>}> */}
       <SubSlider data={cnews?.data}/>
-      </Suspense>
-    <Suspense fallback={<SubSliderSkeleton />}>
+      {/* </Suspense> */}
+    {/* <Suspense fallback={<SubSliderSkeleton />}> */}
   <Education data={CatArray?.data} />
-</Suspense>
+{/* </Suspense> */}
    </GuestLayout>
   );
 }
