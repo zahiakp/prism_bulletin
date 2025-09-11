@@ -6,18 +6,22 @@ import NewsSkeleton from "@/components/Home/(skeleton)/MainSkelten";
 import dynamic from "next/dynamic";
 import SubSliderSkeleton from "@/components/Home/(skeleton)/SubSlider";
 import NewsCardSkeleton from "@/components/Home/(skeleton)/CatSkeleton";
-const MainSlider = dynamic(() => import("@/components/Home/MainSlider"), {
-  // ssr: false,
-  loading: () => <NewsSkeleton />,
-});
-const SubSlider = dynamic(() => import("@/components/Home/SubSlider"), {
-  // ssr: false,
-  loading: () => <SubSliderSkeleton />,
-});
-const Education = dynamic(() => import("@/components/Home/Education"), {
-  // ssr: false,
-  loading: () => <SubSliderSkeleton />,
-});
+import MainSlider from "@/components/Home/MainSlider";
+import SubSlider from "@/components/Home/SubSlider";
+import Education from "@/components/Home/Education";
+
+// const MainSlider = dynamic(() => import("@/components/Home/MainSlider"), {
+//   ssr: false,
+//   loading: () => <NewsSkeleton />,
+// });
+// const SubSlider = dynamic(() => import("@/components/Home/SubSlider"), {
+//   ssr: false,
+//   loading: () => <SubSliderSkeleton />,
+// });
+// const Education = dynamic(() => import("@/components/Home/Education"), {
+//   ssr: false,
+//   loading: () => <SubSliderSkeleton />,
+// });
 export default async function Home() {
   const cnews = await getArticlebyCount("5")
   const CatArray = await getArticlesasNewArray()
@@ -25,16 +29,16 @@ export default async function Home() {
   
   return (
     <GuestLayout>
-      <SubHeader/>
-      {/* <Suspense fallback={<NewsSkeleton/>}> */}
-      <MainSlider data={cnews?.data}/>
-      {/* </Suspense> */}
-      {/* <Suspense fallback={<SubSliderSkeleton/>}> */}
-      <SubSlider data={cnews?.data}/>
-      {/* </Suspense> */}
-    {/* <Suspense fallback={<SubSliderSkeleton />}> */}
-  <Education data={CatArray?.data} />
-{/* </Suspense> */}
-   </GuestLayout>
+      <SubHeader />
+      <Suspense fallback={<NewsSkeleton />}>
+        <MainSlider data={cnews?.data} />
+      </Suspense>
+      <Suspense fallback={<SubSliderSkeleton />}>
+        <SubSlider data={cnews?.data} />
+      </Suspense>
+      <Suspense fallback={<SubSliderSkeleton />}>
+        <Education data={CatArray?.data} />
+      </Suspense>
+    </GuestLayout>
   );
 }

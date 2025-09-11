@@ -4,13 +4,10 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { NEWS } from "../data/data";
-
 import Link from "next/link";
 import { ROOT_URL } from "../data/func";
 import { getRelativeTime } from "../common/DateConvert";
 import { encodeId } from "../common/Decode";
-import Image from "next/image";
 import SafeImage from "../common/SafeImage";
 
 
